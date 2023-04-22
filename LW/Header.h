@@ -1,4 +1,7 @@
 #pragma once
+
+//макрос для определения кода нажатой клавиши
+#define KEY_DOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
 /*-----------------------------------------------------------------*/
 /*               Р Е А Л И З А Ц И Я   К Л А С С О В               */
 /*-----------------------------------------------------------------*/
@@ -41,34 +44,38 @@ public:
 	bool IsVisisble(); //узнать про светимость точки
 	void SetVisible(bool NewVisible) { Visible = NewVisible; }; //поменять светимость
 
-	//виртуальные ф-ии (позднее связывание)
+	// виртуальные ф-ии (позднее связывание)
 	virtual void Show(); //показать ТОЧКУ на экране
 	virtual void Hide();//скрыть ТОЧКУ 
+	void Drag(); // движение объекта
 
 	//ф-ии для раннего связывания
 	//void Show(); //показать ТОЧКУ на экране
 	//void Hide();//скрыть ТОЧКУ 
+	//void Drug(); // движение объекта
+
+	// движение 
 	void MoveTo(int NewX, int NewY);//переместить фигуру
+
 };//Point
+
+
 /*-----------------------------------*/
 /*          КЛАСС Aircraft           */
 /*-----------------------------------*/
 class Aircraft :public Point
 {
-protected:
-	int Radius; //радиус лица
-	int EyeColor; //цвет глаз (0 - КРАСНЫЙ, 1 - КОРИЧНЕВЫЙ, 2 - ЧЕРНЫЙ, 3 - ЗЕЛЕНЫЙ)
-public:
-	Aircraft(int InitX, int InitY, int InitRadius, int InitEyeC); //конструктор
-	~Aircraft(); //деструктор
-	void Show(); //показать ЛИЦО на экране
-	void Hide(); //скрыть ЛИЦО
+private:
+	void Draw();
 
-	//ф-ии для раннего связывания
-	/*void MoveTo(int NewX, int NewY);*/
-};
-//Цвет глаз
-enum Color
-{
-	Red, Brown, Black, Green
+public:
+	Aircraft(int InitX, int InitY); //конструктор
+	~Aircraft(); //деструктор
+
+	// виртуальные ф-ии (позднее связывание)
+	void Show(); //показать на экране
+	void Hide(); //скрыть
+
+	// раннего связывания
+	//void MoveTo(int NewX, int NewY);
 };

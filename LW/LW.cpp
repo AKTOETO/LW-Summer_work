@@ -2,8 +2,8 @@
 *               КАФЕДРА №304 2 КУРС ООП ЛАБОРАТОРНАЯ РАБОТА               *
 ***************************************************************************
 *Project type :Win64 Console Application                                  *
-*Project name :lab_OOP_1.sin								              *
-*File name    :lab_OOP_1.cpp                                              *
+*Project name :LW.sin					         			              *
+*File name    :LW.cpp                                                     *
 *Language     :C++                                                        *
 *Programmers  :Плоцкий Богдан Андреевич     М3О-211Б-21      		      *
 *Modified By  :Плоцкий Богдан Андреевич     М3О-211Б-21                   *
@@ -16,12 +16,10 @@
 #include <windows.h>
 #include <conio.h>
 #include <iostream>    
-#include "src/Header.h"
+#include "Header.h"
 
 using namespace std;           // Пространство имен std
 
-//макрос для определения кода нажатой клавиши
-#define KEY_DOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*   Г Л О Б А Л Ь Н Ы Е   П Е Р Е М Е Н Н Ы Е  И  К О Н С Т А Н Т Ы   */
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -44,8 +42,6 @@ void main()
 	//объявление и инициализация переменных
 	int x0 = 200;	//стартовые координаты точки
 	int y0 = 250;
-	int Radius0 = 100;
-	int Color0 = Brown;
 
 	//получим дескриптор консольного окна
 	HWND hwnd = GetConcolWindow();
@@ -69,15 +65,18 @@ void main()
 			APoint.Hide();//убираем точку
 
 			PressKey(51);//3
-			Aircraft AFace(x0, y0, Radius0, Color0);//лицо
-			AFace.Show(); //показываем лицо
+			Aircraft Samolet(x0, y0);// создание самолета
+			Samolet.Show(); //показываем 
 
 			PressKey(52);//4
-			AFace.MoveTo(x0 + 100, y0 + 100);//перемещаем лицо
+			Samolet.MoveTo(x0 + 100, y0 + 100);//перемещаем 
 
 			PressKey(53);//5
-			AFace.Hide();//убираем лицо
+			Samolet.Hide();//убираем 
 
+			// переход в режим перетаскивания
+			PressKey(54); //6
+			Samolet.Drag();
 
 		}//end if
 	}//end if
@@ -105,6 +104,8 @@ HWND GetConcolWindow()
 
 	return hwnd;//вернуть дескриптор окна
 }//end GetConcolWindow()
+
+
 //функция паузы до нажатия кнопки
 void PressKey(int VkCode)
 {
