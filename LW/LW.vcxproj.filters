@@ -13,18 +13,84 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Aircrafts">
+      <UniqueIdentifier>{7d87aef5-d9b2-4bc7-b152-38c2b60eab36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Barrier">
+      <UniqueIdentifier>{50516e3c-2c1f-4cb9-8256-b72361afab71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LW.cpp">
+    <ClCompile Include="src\LW.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="src\GameObject.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Point.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Location.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ControllableObject.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Aircraft.cpp">
+      <Filter>Aircrafts</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SlowAircraft.cpp">
+      <Filter>Aircrafts</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Barrier.cpp">
+      <Filter>Barrier</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rock.cpp">
+      <Filter>Barrier</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h">
+    <ClInclude Include="src\GameObject.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="src\pch.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Point.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Location.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Constants.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ControllableObject.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aircraft.h">
+      <Filter>Aircrafts</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlowAircraft.h">
+      <Filter>Aircrafts</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Barrier.h">
+      <Filter>Barrier</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rock.h">
+      <Filter>Barrier</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

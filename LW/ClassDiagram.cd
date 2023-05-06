@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Location">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAYAAAIAAAAAAAAAAAAAYAAAAAAAYAA=</HashCode>
+      <FileName>Header.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point">
+    <Position X="15.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAIIgAACEAAAAAAAAAAMAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Header.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aircraft">
+    <Position X="18" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAgAAEAAAAAAAAAAEAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Header.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

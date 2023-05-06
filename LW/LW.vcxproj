@@ -104,6 +104,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +120,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,11 +131,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LW.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="src\Rock.cpp" />
+    <ClCompile Include="src\Barrier.cpp" />
+    <ClCompile Include="src\SlowAircraft.cpp" />
+    <ClCompile Include="src\ControllableObject.cpp" />
+    <ClCompile Include="src\Aircraft.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Location.cpp" />
+    <ClCompile Include="src\Point.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\LW.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="src\Rock.h" />
+    <ClInclude Include="src\Barrier.h" />
+    <ClInclude Include="src\SlowAircraft.h" />
+    <ClInclude Include="src\ControllableObject.h" />
+    <ClInclude Include="src\Aircraft.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\Location.h" />
+    <ClInclude Include="src\Point.h" />
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\GameObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
