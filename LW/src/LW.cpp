@@ -65,7 +65,7 @@ int main()
 			{
 				new Aircraft(100, 100, hdc, 15, {150,50}),        // Aircraft
 				new Aircraft(100, 100, hdc, 10, {10,100}, BLACK),  // CargoAircraft
-				new Aircraft(100, 100, hdc, 5, {100,100},BLUE),    // SlowAircraft
+				new Aircraft(100, 100, hdc, 5, {100,100}, BLUE),    // SlowAircraft
 				new Aircraft(100, 100, hdc, 0, {150,10}, GREEN, 0),// DestroyedAircraft
 				new Aircraft(100, 100, hdc, 10, {50,50}, YELLOW),  // RocketCarrierAircraft
 			};
@@ -78,7 +78,7 @@ int main()
 			std::vector<Barrier*> bars =
 			{
 				new Rock(200, 200, hdc, { 50,50 }),       // Rock
-				new Rock(300, 300, hdc, { 20,70 }, RED),  // Clouds			
+				new Rock(600, 300, hdc, { 20,70 }, RED),  // Clouds			
 				new Rock(200, 400, hdc, { 90,90 }, GREEN) // RocketStation
 			};
 
@@ -95,7 +95,7 @@ int main()
 				{3, 3, 3},
 				{3, 2, 4},
 			};
-			
+
 			// указатель на текущий самолет
 			Aircraft* cur_air = aircrafts[0];
 			cur_air->Show();
@@ -105,10 +105,10 @@ int main()
 			{
 				// отрисовка всех препятствий
 				std::for_each(bars.begin(), bars.end(), [](const auto& _bar) {_bar->ProcessDraw(); });
-				
+
 				// просчет логики и отрисовка самолета
 				cur_air->ProcessLogic(1);
-				cur_air->ProcessDraw();				
+				cur_air->ProcessDraw();
 
 				// проверка на пересечение
 				for (int i = 0; i < collis.size(); i++)
@@ -118,6 +118,7 @@ int main()
 						// если самолет и препятствие пересеклось
 						if (Collision(*aircrafts[i], *bars[j]))
 						{
+							//cout << i << " " << j << endl;
 							// переношу конечный самолет в текущие координаты
 							aircrafts[collis[i][j]]->SetX(cur_air->GetX());
 							aircrafts[collis[i][j]]->SetY(cur_air->GetY());
@@ -135,7 +136,7 @@ int main()
 
 				Sleep(10);
 			}
-			
+
 		}//end if
 	}//end if
 	return 0;
@@ -168,7 +169,7 @@ HWND GetConcolWindow()
 // просчет колизии
 bool Collision(const Aircraft& _air, const Barrier& _bar)
 {
-	
+
 	int r1 = _air.GetX() + _air.GetWidth();
 	int b1 = _air.GetY() + _air.GetHeight();
 	int r2 = _bar.GetX() + _bar.GetWidth();
