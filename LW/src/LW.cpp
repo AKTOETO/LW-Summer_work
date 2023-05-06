@@ -7,20 +7,21 @@
 *Language     :C++                                                        *
 *Programmers  :Плоцкий Богдан Андреевич     М3О-211Б-21      		      *
 *Modified By  :Плоцкий Богдан Андреевич     М3О-211Б-21                   *
-*Created      :21.04.2023                                                 *
-*Last revision:22.04.2023                                                 *
-*Comments	  :ПРОСТЕЙШАЯ ИЕРАРХИЯ КЛАССОВ                                *
+*Created      :1.05.2023                                                  *
+*Last revision:6.05.2023                                                  *
+*Comments	  :НАСЛЕДОВАНИЕ     		                                  *
 **************************************************************************/
 
 #include "pch.h"
-//#include <windows.h>
-//#include <conio.h>
-//#include <iostream>    
-//#include "Header.h"
-//#include "src/Game.h"
 #include "Aircraft.h"
-#include "Rock.h"
+#include "DeadAircraft.h"
+#include "SlowAircraft.h"
+#include "CargoAircraft.h"
+#include "RocketCarrierAircraft.h"
 
+#include "Rock.h"
+#include "Cloud.h"
+#include "RocketStation.h"
 
 using namespace std;           // Пространство имен std
 
@@ -56,30 +57,24 @@ int main()
 		//если контекст существует - можем работать
 		if (hdc != 0)
 		{
-			// самолеты
-			//Aircraft sm(100, 100, hdc, 5, {150,100});
-
 			// массив указателей на самолеты
 			// тут будет 5 элементов
 			std::vector<Aircraft*> aircrafts =
 			{
-				new Aircraft(100, 100, hdc, 15, {150,50}),        // Aircraft
-				new Aircraft(100, 100, hdc, 10, {10,100}, BLACK),  // CargoAircraft
-				new Aircraft(100, 100, hdc, 5, {100,100},BLUE),    // SlowAircraft
-				new Aircraft(100, 100, hdc, 0, {150,10}, GREEN, 0),// DestroyedAircraft
-				new Aircraft(100, 100, hdc, 10, {50,50}, YELLOW),  // RocketCarrierAircraft
+				new Aircraft(100, 100, hdc, 15, {150,50}, RED),         // Aircraft 0
+				new CargoAircraft(100, 100, hdc, 7, {100,100}, GREEN),  // CargoAircraft 1
+				new SlowAircraft(100, 100, hdc, 7, {100,100}, BLUE),    // SlowAircraft 2
+				new DeadAircraft(100, 100, hdc, 15, {150,150}, BLACK),  // DeadAircraft 3
+				new RocketCarrierAircraft(100, 100, hdc, 10, {150,150}, YELLOW),  // RocketCarrierAircraft 4
 			};
-
-			// препятствия
-			//Rock rc(200, 200, hdc, { 50,50 });
 
 			// массив указателей на препятствия
 			// тут будет 3 элемента
 			std::vector<Barrier*> bars =
 			{
-				new Rock(200, 200, hdc, { 50,50 }),       // Rock
-				new Rock(300, 300, hdc, { 20,70 }, RED),  // Clouds			
-				new Rock(200, 400, hdc, { 90,90 }, GREEN) // RocketStation
+				new Rock(900, 200, hdc, { 50,50 }, BLACK),  // Rock
+				new Cloud(300, 300, hdc, { 20,70 }, BLUE),  // Clouds			
+				new RocketStation(200, 400, hdc, { 45,150 }, RED)     // RocketStation
 			};
 
 			// матрица пересечений
@@ -90,12 +85,12 @@ int main()
 			std::vector<std::vector<int>> collis =
 			{
 				{3, 2, 4},
-				{3, 2, 1},
-				{3, 2, 2},
-				{3, 3, 3},
 				{3, 2, 4},
+				{3, 2, 4},
+				{3, 0, 1},
+				{3, 4, 4},
 			};
-			
+
 			// указатель на текущий самолет
 			Aircraft* cur_air = aircrafts[0];
 			cur_air->Show();
@@ -105,10 +100,9 @@ int main()
 			{
 				// отрисовка всех препятствий
 				std::for_each(bars.begin(), bars.end(), [](const auto& _bar) {_bar->ProcessDraw(); });
-				
+
 				// просчет логики и отрисовка самолета
 				cur_air->ProcessLogic(1);
-				cur_air->ProcessDraw();				
 
 				// проверка на пересечение
 				for (int i = 0; i < collis.size(); i++)
@@ -132,10 +126,9 @@ int main()
 						}
 					}
 				}
-
 				Sleep(10);
 			}
-			
+
 		}//end if
 	}//end if
 	return 0;
@@ -168,11 +161,9 @@ HWND GetConcolWindow()
 // просчет колизии
 bool Collision(const Aircraft& _air, const Barrier& _bar)
 {
-	
 	int r1 = _air.GetX() + _air.GetWidth();
 	int b1 = _air.GetY() + _air.GetHeight();
 	int r2 = _bar.GetX() + _bar.GetWidth();
 	int b2 = _bar.GetY() + _bar.GetHeight();
 	return (_air.GetX() < r2) && (_bar.GetX() < r1) && (_air.GetY() < b2) && (_bar.GetY() < b1);
-
 }

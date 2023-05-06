@@ -20,7 +20,7 @@ void GameObject::ProcessLogic(float _time)
 void GameObject::ProcessDraw()
 {
 	Hide();
-	Rectangle(m_hdc, m_x, m_y, m_x+m_hitbox.m_width, m_y+m_hitbox.m_height);
+	//Rectangle(m_hdc, m_x, m_y, m_x+m_hitbox.m_width, m_y+m_hitbox.m_height);
 	Show();
 }
 

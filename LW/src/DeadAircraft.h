@@ -1,8 +1,8 @@
-#ifndef SLOWAIRCRAFT_H
-#define SLOWAIRCRAFT_H
+#ifndef DEADAIRCRAFT_H
+#define DEADAIRCRAFT_H
 
 #include "Aircraft.h"
-class SlowAircraft :
+class DeadAircraft :
     public Aircraft
 {
 protected:
@@ -10,9 +10,11 @@ protected:
 	virtual void Draw() override;
 
 public:
-	SlowAircraft(
+	DeadAircraft(
 		int InitX, int InitY, const HDC& _hdc, int _speed = 10,
 		HitBox _hb = { 10,10 }, COLORREF _color = RED, bool is_mooveable = 1
-	); //конструктор
+	);
+
 };
-#endif //!SLOWAIRCRAFT_H
+
+#endif

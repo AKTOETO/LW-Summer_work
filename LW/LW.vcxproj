@@ -131,6 +131,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\RocketStation.cpp" />
+    <ClCompile Include="src\Cloud.cpp" />
+    <ClCompile Include="src\RocketCarrierAircraft.cpp" />
+    <ClCompile Include="src\CargoAircraft.cpp" />
+    <ClCompile Include="src\DeadAircraft.cpp" />
     <ClCompile Include="src\Rock.cpp" />
     <ClCompile Include="src\Barrier.cpp" />
     <ClCompile Include="src\SlowAircraft.cpp" />
@@ -147,6 +152,11 @@
     <ClCompile Include="src\LW.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\RocketStation.h" />
+    <ClInclude Include="src\Cloud.h" />
+    <ClInclude Include="src\RocketCarrierAircraft.h" />
+    <ClInclude Include="src\CargoAircraft.h" />
+    <ClInclude Include="src\DeadAircraft.h" />
     <ClInclude Include="src\Rock.h" />
     <ClInclude Include="src\Barrier.h" />
     <ClInclude Include="src\SlowAircraft.h" />
