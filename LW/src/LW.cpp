@@ -2,17 +2,18 @@
 *               КАФЕДРА №304 2 КУРС ООП ЛАБОРАТОРНАЯ РАБОТА               *
 ***************************************************************************
 *Project type :Win64 Console Application                                  *
-*Project name :LW.sin					         			              *
+*Project name :LW.sln					         			              *
 *File name    :LW.cpp                                                     *
 *Language     :C++                                                        *
 *Programmers  :Плоцкий Богдан Андреевич     М3О-211Б-21      		      *
 *Modified By  :Плоцкий Богдан Андреевич     М3О-211Б-21                   *
 *Created      :1.05.2023                                                  *
-*Last revision:6.05.2023                                                  *
-*Comments	  :НАСЛЕДОВАНИЕ     		                                  *
+*Last revision:20.05.2023                                                 *
+*Comments	  :Динамический полиморфизм                                   *
 **************************************************************************/
 
 #include "pch.h"
+
 #include "Aircraft.h"
 #include "DeadAircraft.h"
 #include "SlowAircraft.h"
@@ -71,7 +72,7 @@ int main()
 			{
 				new SlowAircraft(100, 100, hdc, 7, {100,100}, BLUE),    // SlowAircraft 0
 				new CargoAircraft(100, 100, hdc, 7, {100,100}, GREEN),  // CargoAircraft 1
-				new DeadAircraft(100, 100, hdc, 15, {150,150}, BLACK),  // DeadAircraft 2
+				new DeadAircraft(100, 100, hdc, 0, {150,150}, BLACK),  // DeadAircraft 2
 				new RocketCarrierAircraft(100, 100, hdc, 10, {150,150}, YELLOW),  // RocketCarrierAircraft 3
 			};
 
