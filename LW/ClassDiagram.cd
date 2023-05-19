@@ -92,7 +92,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="IGameObject" Collapsed="true">
-    <Position X="5" Y="3.25" Width="1.5" />
+    <Position X="4.75" Y="3.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\IGameObject.h</FileName>

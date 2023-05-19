@@ -40,6 +40,14 @@ using namespace std;           // Пространство имен std
 HWND GetConcolWindow(); //указатель на консольное окно
 bool Collision(const Aircraft& _air, const Barrier& _bar);
 
+template<class t>
+inline void PrintVec(const vector<t>& _vec, string _sep = " ", string _end = "\n")
+{
+	for (const auto& el : _vec)cout << el << _sep;
+	cout << _end;
+
+}
+
 /***********************************************************************/
 /*               О С Н О В Н А Я    П Р О Г Р А М М А                  */
 /***********************************************************************/
@@ -73,7 +81,7 @@ int main()
 			{
 				new Rock(900, 200, hdc, { 50,50 }, BLACK),  // Rock
 				new Cloud(300, 300, hdc, { 20,70 }, BLUE),  // Clouds			
-				new RocketStation(200, 400, hdc, { 45,150 }, RED)     // RocketStation
+				new RocketStation(500, 400, hdc, { 45,150 }, RED)     // RocketStation
 			};
 
 			// матрица пересечений
@@ -107,10 +115,13 @@ int main()
 
 				// просчет логики и отрисовка самолета
 				cur_air->ProcessLogic(1);
-				
+
 				// обработка столкновений
 				for (int j = 0; j < collis[0].size(); j++)
 				{
+					//PrintVec(is_collision);
+					//PrintVec(was_changed);
+
 					// если самолет и препятствие пересеклось
 					if (Collision(*cur_air, *bars[j]))
 					{
@@ -121,9 +132,9 @@ int main()
 						is_collision[j] = 0;
 						was_changed[j] = 0;
 					}
-						
+
 					// если сейчас есть пересечение, а шаг назад его не было
-					if(is_collision[j] && !was_changed[j])
+					if (is_collision[j] && !was_changed[j])
 					{
 						// новый индекс самолета
 						int new_aircraft = collis[cur_aircraft_index][j];

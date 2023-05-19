@@ -6,7 +6,7 @@ void GameObject::Draw()
 }
 
 GameObject::GameObject(int _x, int _y, const HDC& _hdc, HitBox _hb, COLORREF _color)
-	:Point(_x, _y), m_hdc(_hdc), m_hitbox(_hb), m_color(_color)
+	:Point(_x, _y), m_hdc(_hdc), m_hitbox(_hb), m_color(_color), m_time(0)
 {}
 
 GameObject::~GameObject()
