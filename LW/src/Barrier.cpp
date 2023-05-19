@@ -6,12 +6,3 @@ Barrier::Barrier(int _x, int _y, const HDC& _hdc, HitBox _hb, COLORREF _color)
 {
 }
 
-Barrier::~Barrier()
-{
-}
-
-void Barrier::ProcessDraw()
-{
-	Hide();
-	Show();
-}

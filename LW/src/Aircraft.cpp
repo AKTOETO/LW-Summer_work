@@ -29,8 +29,3 @@ Aircraft::Aircraft(int _x, int _y, const HDC& _hdc, int _speed, HitBox _hb, COLO
 Aircraft::~Aircraft()
 {};
 
-//void Aircraft::ProcessLogic(float _time)
-//{
-//	// TODO Добавить обработку нажатия клавиш
-//	ControllableObject::ProcessLogic(_time);
-//}

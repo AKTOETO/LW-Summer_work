@@ -28,19 +28,11 @@ void ControllableObject::Move(float _time)
 	}
 }
 
-//void ControllableObject::Draw()
-//{
-//}
-
 ControllableObject::ControllableObject(
 	int _x, int _y, const HDC& _hdc, float _speed, HitBox _hb, COLORREF _color, bool is_mooveable
 ) :
 	GameObject(_x, _y, _hdc, _hb, _color), m_speed(_speed), m_dir(DIR::STOP),
 	m_is_controllable(is_mooveable)
-{
-}
-
-ControllableObject::~ControllableObject()
 {
 }
 
@@ -70,23 +62,3 @@ void ControllableObject::SetControllable(bool _b)
 {
 	m_is_controllable = _b;
 }
-
-//void ControllableObject::Show()
-//{
-//	GameObject::Show();
-//	// зарисовываю фигуру красным цветом
-//	HPEN Pen = CreatePen(PS_SOLID, 3, RED);
-//	SelectObject(m_hdc, Pen);
-//	Draw();
-//	DeleteObject(Pen);
-//}
-//
-//void ControllableObject::Hide()
-//{
-//	GameObject::Hide();
-//	// зарисовываю фигуру белым цветом
-//	HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
-//	SelectObject(m_hdc, Pen);
-//	Draw();
-//	DeleteObject(Pen);
-//}

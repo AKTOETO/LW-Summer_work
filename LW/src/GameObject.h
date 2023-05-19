@@ -1,6 +1,7 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 #include "Point.h"
+#include "IGameObject.h"
 
 // структура поля вокруг игрового объекта
 struct HitBox
@@ -21,16 +22,17 @@ struct HitBox
 };
 
 // класс игрового объекта
-class GameObject : public Point
+class GameObject : public Point, public IGameObject
 {
 protected:
 	HitBox m_hitbox;	// область игрового объекта
 	HDC m_hdc;			// контекст консоли
 	COLORREF m_color;
 
-	// функция отрисовки фигуры
-	virtual void Draw();
+	float m_time;
 
+	// функция отрисовки фигуры
+	virtual void Draw() = 0;
 public:
 	// конструктор, принимающий координаты левого верзнего угла
 	// игрового объекта
@@ -38,8 +40,8 @@ public:
 	virtual ~GameObject();
 
 	// чисто виртуальные методы обработки логики и отрисовки объекта
-	virtual void ProcessLogic(float _time);
-	virtual void ProcessDraw();
+	virtual void ProcessLogic(float _time) override;
+	virtual void ProcessDraw() override;
 
 	// Методы получения характеристик игрового объекта
 	const int& GetWidth() const;

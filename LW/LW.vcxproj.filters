@@ -36,9 +36,6 @@
     <ClCompile Include="src\Location.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\ControllableObject.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -69,6 +66,9 @@
     <ClCompile Include="src\RocketStation.cpp">
       <Filter>Barrier</Filter>
     </ClCompile>
+    <ClCompile Include="src\IGameObject.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameObject.h">
@@ -84,9 +84,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\Constants.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\ControllableObject.h">
@@ -118,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="src\RocketStation.h">
       <Filter>Barrier</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IGameObject.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

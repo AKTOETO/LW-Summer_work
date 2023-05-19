@@ -43,30 +43,3 @@ void Point::Hide()
 	SetPixel(hdc, m_x + 1, m_y + 1, RGB(0, 0, 0));//рисуем точку устаовленным цветом
 
 }
-
-//// перемещение по клавишам
-//void Point::Drag()
-//{
-//	// пока не нажата Q
-//	while (!KEY_DOWN(81))
-//	{
-//		// A - лево
-//		if (KEY_DOWN(65)) MoveTo(m_x - 10, m_y);
-//		// W - вверх
-//		else if (KEY_DOWN(87)) MoveTo(m_x, m_y - 10);
-//		// D - вправо
-//		else if (KEY_DOWN(68)) MoveTo(m_x + 10, m_y);
-//		// S - Вниз
-//		else if (KEY_DOWN(83)) MoveTo(m_x, m_y + 10);
-//		Sleep(10);
-//	}
-//}
-//
-////переместить ФИГУРУ по новым координатам
-//void Point::MoveTo(int NewX, int NewY)
-//{
-//	Hide();//скрыть ФИГУРУ по текущим коорднатам
-//	m_x = NewX; //меняем ккординаты ФИГУРЫ
-//	m_y = NewY;
-//	Show();//показать ФИГУРУ по новым координатам
-//}

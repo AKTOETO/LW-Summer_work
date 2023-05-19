@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\IGameObject.cpp" />
     <ClCompile Include="src\RocketStation.cpp" />
     <ClCompile Include="src\Cloud.cpp" />
     <ClCompile Include="src\RocketCarrierAircraft.cpp" />
@@ -141,7 +142,6 @@
     <ClCompile Include="src\SlowAircraft.cpp" />
     <ClCompile Include="src\ControllableObject.cpp" />
     <ClCompile Include="src\Aircraft.cpp" />
-    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Location.cpp" />
     <ClCompile Include="src\Point.cpp" />
     <ClCompile Include="src\pch.cpp">
@@ -152,6 +152,7 @@
     <ClCompile Include="src\LW.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\IGameObject.h" />
     <ClInclude Include="src\RocketStation.h" />
     <ClInclude Include="src\Cloud.h" />
     <ClInclude Include="src\RocketCarrierAircraft.h" />
@@ -162,7 +163,6 @@
     <ClInclude Include="src\SlowAircraft.h" />
     <ClInclude Include="src\ControllableObject.h" />
     <ClInclude Include="src\Aircraft.h" />
-    <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\Location.h" />
     <ClInclude Include="src\Point.h" />

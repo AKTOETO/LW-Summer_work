@@ -6,9 +6,6 @@ class Barrier : public GameObject
 {
 public:
 	Barrier(int _x, int _y, const HDC& _hdc, HitBox _hb, COLORREF _color);
-	~Barrier();
-
-	virtual void ProcessDraw() override;
 };
 
 #endif

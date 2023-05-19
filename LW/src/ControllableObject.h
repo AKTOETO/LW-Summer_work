@@ -26,16 +26,12 @@ protected:
     float m_speed;
     bool m_is_controllable;
 
-    // функция отрисовки фигуры
-    //virtual void Draw() override;
-
 public:
 
     // конструктор и деструктор
     ControllableObject(
         int _x, int _y, const HDC& _hdc, float _speed = 10, HitBox _hb = {10,10}, COLORREF _color = RED, bool is_mooveable = 1
     );
-    virtual ~ControllableObject();
 
     // методы обработки логики и отрисовки объекта
     virtual void ProcessLogic(float _time) override;

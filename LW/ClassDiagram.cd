@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Location" Collapsed="true">
-    <Position X="6.75" Y="2" Width="1.5" />
+    <Position X="6.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAYAAAIAAAAAQAAAAAAAYAAAAAAAAAA=</HashCode>
       <FileName>src\Location.h</FileName>
@@ -22,21 +22,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ControllableObject" Collapsed="true">
-    <Position X="5" Y="5.75" Width="1.5" />
+    <Position X="4.75" Y="5.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAoAAAAABIABAAAAAAAABAAACAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAoAAAAAAIABAAAAAAAABAAACAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>src\ControllableObject.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Game" Collapsed="true">
-    <Position X="10.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Game.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="GameObject" Collapsed="true">
-    <Position X="6.75" Y="4.5" Width="1.5" />
+    <Position X="6.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABgAAAAAABAAAgAAEAAAAABAAAAEAAAAAAIAAEoAAAA=</HashCode>
       <FileName>src\GameObject.h</FileName>
@@ -57,9 +50,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Barrier" Collapsed="true">
-    <Position X="8" Y="5.75" Width="1.5" />
+    <Position X="9.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAAgAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Barrier.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -78,7 +71,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RocketCarrierAircraft" Collapsed="true">
-    <Position X="5" Y="9.5" Width="1.5" />
+    <Position X="4.75" Y="9.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\RocketCarrierAircraft.h</FileName>
@@ -98,15 +91,22 @@
       <FileName>src\RocketStation.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="IGameObject" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\IGameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="HitBox" Collapsed="true">
-    <Position X="10.25" Y="2" Width="1.5" />
+    <Position X="8.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAABBAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>src\GameObject.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Enum Name="DIR" Collapsed="true">
-    <Position X="10.25" Y="3.25" Width="1.5" />
+    <Position X="10.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
       <FileName>src\ControllableObject.h</FileName>

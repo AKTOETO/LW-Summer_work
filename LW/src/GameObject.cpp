@@ -15,6 +15,7 @@ GameObject::~GameObject()
 
 void GameObject::ProcessLogic(float _time)
 {
+	m_time = _time;
 }
 
 void GameObject::ProcessDraw()
