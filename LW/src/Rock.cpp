@@ -12,7 +12,3 @@ Rock::Rock(int _x, int _y, const HDC& _hdc, HitBox _hb, COLORREF _color)
 	:Barrier(_x, _y, _hdc, _hb, _color)
 {
 }
-
-Rock::~Rock()
-{
-}

@@ -54,6 +54,21 @@
     <ClCompile Include="src\Rock.cpp">
       <Filter>Barrier</Filter>
     </ClCompile>
+    <ClCompile Include="src\DeadAircraft.cpp">
+      <Filter>Aircrafts</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CargoAircraft.cpp">
+      <Filter>Aircrafts</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RocketCarrierAircraft.cpp">
+      <Filter>Aircrafts</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cloud.cpp">
+      <Filter>Barrier</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RocketStation.cpp">
+      <Filter>Barrier</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameObject.h">
@@ -87,6 +102,21 @@
       <Filter>Barrier</Filter>
     </ClInclude>
     <ClInclude Include="src\Rock.h">
+      <Filter>Barrier</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DeadAircraft.h">
+      <Filter>Aircrafts</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CargoAircraft.h">
+      <Filter>Aircrafts</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RocketCarrierAircraft.h">
+      <Filter>Aircrafts</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cloud.h">
+      <Filter>Barrier</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RocketStation.h">
       <Filter>Barrier</Filter>
     </ClInclude>
   </ItemGroup>
