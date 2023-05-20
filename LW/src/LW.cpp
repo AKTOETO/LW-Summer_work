@@ -70,9 +70,9 @@ int main()
 			// тут будет 5 элементов
 			std::vector<Aircraft*> aircrafts =
 			{
-				new SlowAircraft(100, 100, hdc, 7, {100,100}, BLUE),    // SlowAircraft 0
-				new CargoAircraft(100, 100, hdc, 7, {100,100}, GREEN),  // CargoAircraft 1
-				new DeadAircraft(100, 100, hdc, 0, {150,150}, BLACK),  // DeadAircraft 2
+				new SlowAircraft(100, 100, hdc, 7, {100,100}, BLUE),              // SlowAircraft 0
+				new CargoAircraft(100, 100, hdc, 7, {100,100}, GREEN),            // CargoAircraft 1
+				new DeadAircraft(100, 100, hdc, 0, {150,150}, BLACK),             // DeadAircraft 2
 				new RocketCarrierAircraft(100, 100, hdc, 10, {150,150}, YELLOW),  // RocketCarrierAircraft 3
 			};
 
