@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 
+// интерфейс части самолета
 class IAircraftPart
 {
 protected:
@@ -17,128 +18,63 @@ protected:
 	virtual void BrokenFuselage() = 0;
 };
 
+// Абстрактный базовый класс самолета
+// реализует функции отрисовки частей самолета
 class ABCBaseAircraft:
 	public IAircraftPart,
 	public HitBox
 {
 protected:
-	float m_speed;
-	COLORREF m_color;
-	HDC m_hdc;
+
+	float m_speed;		// скорость самолета
+	COLORREF m_color;	// цвет самолета
+	HDC m_hdc;			// контекст консоли
 
 	// Отрисовка текущего самолета
 	virtual void Draw() = 0;
 
 	// части самолета
-	virtual void Wing() override 
-	{
-		// крыло нижнее
-		MoveToEx(m_hdc, GetShiftedX(50), GetShiftedY(75), NULL);
-		LineTo(m_hdc, GetShiftedX(65), GetShiftedY(0));
-		LineTo(m_hdc, GetShiftedX(60), GetShiftedY(100));
-	};
+	// крыло
+	virtual void Wing() override;
 
-	virtual void Fuselage() override
-	{
-		MoveToEx(m_hdc, GetX(), GetY(), NULL);
-		LineTo(m_hdc, GetShiftedX(20), GetY());
-		LineTo(m_hdc, GetShiftedX(25), GetShiftedY(40));
-		LineTo(m_hdc, GetShiftedX(90), GetShiftedY(40));
-		LineTo(m_hdc, GetShiftedX(100), GetShiftedY(70));
-		LineTo(m_hdc, GetShiftedX(90), GetShiftedY(100));
-		LineTo(m_hdc, GetShiftedX(5), GetShiftedY(100));
-		LineTo(m_hdc, GetX(), GetY());
-	};
+	// фюзеляж
+	virtual void Fuselage() override;
 
-	virtual void Window() override
-	{
-		// окно
-		MoveToEx(m_hdc, GetX(), GetY(), NULL);
-		LineTo(m_hdc, GetShiftedX(100), GetShiftedY(0));
-		LineTo(m_hdc, GetShiftedX(100), GetShiftedY(100));
-		LineTo(m_hdc, GetShiftedX(0), GetShiftedY(100));
-		LineTo(m_hdc, GetShiftedX(0), GetShiftedY(0));
-	};
+	// иллюминатор
+	virtual void Window() override;
 
-	virtual void BrokenFuselage() override
-	{
-		MoveToEx(m_hdc, GetX(), GetY(), NULL);
-		LineTo(m_hdc, GetShiftedX(20), GetY());
-		LineTo(m_hdc, GetShiftedX(25), GetShiftedY(40));
-		LineTo(m_hdc, GetShiftedX(90), GetShiftedY(40));
-		LineTo(m_hdc, GetShiftedX(5), GetShiftedY(100));
-		LineTo(m_hdc, GetX(), GetY());
-	};
-
-private:
+	// сломанный самолет
+	virtual void BrokenFuselage() override;
 
 public:
-	ABCBaseAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed)
-		:HitBox(_box),m_hdc(_hdc), m_color(_color), m_speed(_speed) {};
+	// конструктор
+	ABCBaseAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed);
 	
-	void Hide()
-	{
-		// зарисовываю фигуру белым цветом
-		HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
-		SelectObject(m_hdc, Pen);
-		Draw();
-		DeleteObject(Pen);
-	};
+	// метод скрытия объекта
+	void Hide();
 
-	void Show()
-	{
-		// зарисовываю фигуру красным цветом
-		HPEN Pen = CreatePen(PS_SOLID, 3, m_color);
-		SelectObject(m_hdc, Pen);
-		Draw();
-		DeleteObject(Pen);
-	};
+	// метод отображения объекта
+	void Show();
 	
-	void ProcessDraw()
-	{
-		// прячем объект
-		Hide();
-
-		Position shift(0,0);
-		// обработка нажатых клавиш
-		// если нажата клавиша вперед, двигаемся вверх
-		if (KEY_DOWN(K_FORWARD))
-			shift = { 0, -int(m_speed) };
-
-		// если нажата клавиша назад, двигаемся вниз
-		else if (KEY_DOWN(K_BACKWARD))
-			shift = { 0, int(m_speed) };
-
-		// если нажата клавиша назад, двигаемся вниз
-		else if (KEY_DOWN(K_LEFTWARD))
-			shift = { -int(m_speed),0 };
-
-		// если нажата клавиша назад, двигаемся вниз
-		else if (KEY_DOWN(K_RIGHTWARD))
-			shift = { int(m_speed),0 };
-
-		// вызов метода сдвига объекта
-		ShiftPos(shift);
-
-		Show();
-	}
+	// процесс отрисовки самолета
+	// и обработки перемещения самолета
+	void ProcessDraw();
 };
 
+//=================//
+// С А М О Л Е Т Ы //
+//=================//
+
 // легкий самолет
-class Aircraft :
+class LightAircraft :
 	public ABCBaseAircraft
 {
 public:
-	Aircraft(HDC _hdc) :
-		ABCBaseAircraft(_hdc, { 0,0,100,50 }, RED, 10)
-	{}
+	// конструктор
+	LightAircraft(HDC _hdc);
 
 	// Отрисовка самолета
-	virtual void Draw() override
-	{
-		Fuselage();
-		Wing();
-	}
+	virtual void Draw() override;
 };
 
 // сломанный самолет
@@ -146,16 +82,11 @@ class BrokenAircraft :
 	public ABCBaseAircraft
 {
 public:
-	BrokenAircraft(HDC _hdc):
-		ABCBaseAircraft(_hdc, {0,0,100,50}, GREEN, 0)
-	{}
+	// конструктор
+	BrokenAircraft(HDC _hdc);
 
-	// отрисовка самолета
-	virtual void Draw() override
-	{
-		BrokenFuselage();
-		Wing();
-	}
+	// Отрисовка самолета
+	virtual void Draw() override;
 };
 
 // только фюзеляж
@@ -163,13 +94,9 @@ class FuselageAircraft :
 	public ABCBaseAircraft
 {
 public:
-	FuselageAircraft(HDC _hdc):
-		ABCBaseAircraft(_hdc, {0,0,100,50}, YELLOW, 5)
-	{}
+	// конструктор
+	FuselageAircraft(HDC _hdc);
 
-	// отрисовка самолета
-	virtual void Draw() override
-	{
-		Fuselage();
-	}
+	// Отрисовка самолета
+	virtual void Draw() override;
 };

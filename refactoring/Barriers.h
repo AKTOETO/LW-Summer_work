@@ -1,95 +1,56 @@
 #pragma once
 #include "pch.h"
 
+// интерфейс части препятствия
 class IBarrierPart
 {
 protected:
-	// крыло
+	// камень
 	virtual void Rock() = 0;
 
-	// фюзеляж
+	// большой камень
 	virtual void HugeRock() = 0;
 
-	// окно
+	// прямоугольник
 	virtual void Rectangle() = 0;
-
 };
 
+// абстрактный базовый класс препятствия
 class ABCBaseBarrier :
 	public IBarrierPart,
 	public HitBox
 {
 protected:
-	COLORREF m_color;
-	HDC m_hdc;
+	COLORREF m_color;	// цвет препятствия
+	HDC m_hdc;			// контекст консоли
 
-	// Отрисовка текущего самолета
+	// Отрисовка препятствия
 	virtual void Draw() = 0;
 
 	// части препятствия
-	virtual void Rock() override
-	{
-		// камень
-		MoveToEx(m_hdc, GetX(), GetY(), NULL);
-		LineTo(m_hdc, GetShiftedX(5), GetShiftedY(100));
-		LineTo(m_hdc, GetShiftedX(50), GetShiftedY(100));
-		LineTo(m_hdc, GetShiftedX(100), GetShiftedY(0));
-	};
+	// камень
+	virtual void Rock() override;
 
-	virtual void HugeRock() override
-	{
-		// большой камень
-		MoveToEx(m_hdc, GetX(), GetY(), NULL);
-		LineTo(m_hdc, GetShiftedX(20), GetY());
-		LineTo(m_hdc, GetShiftedX(25), GetShiftedY(20));
-		LineTo(m_hdc, GetShiftedX(35), GetShiftedY(50));
-		LineTo(m_hdc, GetShiftedX(100), GetShiftedY(100));
-		LineTo(m_hdc, GetShiftedX(50), GetShiftedY(50));
-		LineTo(m_hdc, GetShiftedX(0), GetShiftedY(20));
-		LineTo(m_hdc, GetX(), GetY());
-	};
+	// большой камень
+	virtual void HugeRock() override;
 
-	virtual void Rectangle() override
-	{
-		// прямоугольник
-		MoveToEx(m_hdc, GetX(), GetY(), NULL);
-		LineTo(m_hdc, GetShiftedX(100), GetShiftedY(0));
-		LineTo(m_hdc, GetShiftedX(100), GetShiftedY(100));
-		LineTo(m_hdc, GetShiftedX(0), GetShiftedY(100));
-		LineTo(m_hdc, GetShiftedX(0), GetShiftedY(0));
-	};
+	// прямоугольник
+	virtual void Rectangle() override;
 
 private:
-	void Hide()
-	{
-		// зарисовываю фигуру белым цветом
-		HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
-		SelectObject(m_hdc, Pen);
-		Draw();
-		DeleteObject(Pen);
-	};
 
-	void Show()
-	{
-		// зарисовываю фигуру красным цветом
-		HPEN Pen = CreatePen(PS_SOLID, 3, m_color);
-		SelectObject(m_hdc, Pen);
-		Draw();
-		DeleteObject(Pen);
-	};
+	// прячем объект
+	void Hide();
+
+	// показываем объект
+	void Show();
 
 public:
-	ABCBaseBarrier(HDC _hdc, HitBox _box, COLORREF _color)
-		:HitBox(_box), m_hdc(_hdc), m_color(_color) {};
+	// конструктор
+	ABCBaseBarrier(HDC _hdc, HitBox _box, COLORREF _color);
 
-	void ProcessDraw()
-	{
-		// прячем объект
-		Hide();
-
-		// показываем объект
-		Show();
-	}
+	// отрисовка препятствия
+	void ProcessDraw();
 };
 
 // легкое препятствие
@@ -97,15 +58,11 @@ class LightBarrier :
 	public ABCBaseBarrier
 {
 public:
-	LightBarrier(HDC _hdc) :
-		ABCBaseBarrier(_hdc, { 200,500,50,50 }, YELLOW)
-	{}
+	// конструктор
+	LightBarrier(HDC _hdc);
 
-	// Отрисовка самолета
-	virtual void Draw() override
-	{
-		Rock();
-	}
+	// отрисовка препятствия
+	virtual void Draw() override;
 };
 
 // большое препятствие
@@ -113,15 +70,11 @@ class HugeBarrier :
 	public ABCBaseBarrier
 {
 public:
-	HugeBarrier(HDC _hdc) :
-		ABCBaseBarrier(_hdc, { 200,200,100,100 }, GREEN)
-	{}
+	// конструктор
+	HugeBarrier(HDC _hdc);
 
-	// отрисовка
-	virtual void Draw() override
-	{
-		HugeRock();
-	}
+	// отрисовка препятствия
+	virtual void Draw() override;
 };
 
 // прямоугольник
@@ -129,13 +82,9 @@ class RectBarrier :
 	public ABCBaseBarrier
 {
 public:
-	RectBarrier(HDC _hdc):
-		ABCBaseBarrier(_hdc, {400, 300, 150,150}, BLACK)
-	{}
+	// конструктор
+	RectBarrier(HDC _hdc);
 
-	// отрисовка 
-	virtual void Draw() override
-	{
-		Rectangle();
-	}
+	// отрисовка препятствия
+	virtual void Draw() override;
 };
