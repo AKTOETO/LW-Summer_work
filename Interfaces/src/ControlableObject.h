@@ -20,6 +20,7 @@ private:
 
     DIR m_dir;      // текущее направление
     float m_speed;  // скорость передвижени€
+    bool m_controllable;
 
     // функци€, выполн€юща€ сдвиг контроллируемого объекта
     // путем смещений координат на _shift
@@ -32,5 +33,8 @@ public:
 
     // методы обработки логики и отрисовки объекта
     virtual void ProcessLogic(float _time);
+
+    // можно двигатьс€ или нет
+    void SetControllable(bool);
 };
 

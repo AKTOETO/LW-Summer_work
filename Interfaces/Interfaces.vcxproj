@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\aircrafts\SlowAircraft.cpp" />
     <ClCompile Include="src\barriers\Mountain.cpp" />
     <ClCompile Include="src\barriers parts\Rock.cpp" />
     <ClCompile Include="src\DrawableObject.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="src\aircrafts parts\Wing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\aircrafts\SlowAircraft.h" />
     <ClInclude Include="src\barriers\Mountain.h" />
     <ClInclude Include="src\barriers parts\IncludeBarrierParts.h" />
     <ClInclude Include="src\barriers parts\Rock.h" />

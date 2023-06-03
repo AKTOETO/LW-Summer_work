@@ -1,8 +1,8 @@
 #include "../pch.h"
-#include "Aircraft.h"
+#include "SlowAircraft.h"
 
-Aircraft::Aircraft(const HdcPos& _cnt)
-	:BaseAircraft(10)
+SlowAircraft::SlowAircraft(const HdcPos& _cnt)
+	:BaseAircraft(5)
 {
 	// добавляем части самолета в список объектов самолета
 	m_aircraft_parts =
@@ -12,5 +12,5 @@ Aircraft::Aircraft(const HdcPos& _cnt)
 	};
 
 	// сдвигаем крыло
-	m_aircraft_parts[0]->ShiftPos({ 40,20 });
+	m_aircraft_parts[0]->ShiftPos({ 20,40 });
 }

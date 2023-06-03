@@ -23,12 +23,13 @@ void ControlableObject::GenerateShift(float _time)
 		break;
 	}
 
-	// сдвиг объекта на консоли
-	ProcessMove(shift);
+	if(m_controllable)
+		// сдвиг объекта на консоли
+		ProcessMove(shift);
 }
 
 ControlableObject::ControlableObject(float _speed)
-	:m_speed(_speed), m_dir(DIR::STOP)
+	:m_speed(_speed), m_dir(DIR::STOP), m_controllable (1)
 {
 }
 
@@ -52,4 +53,9 @@ void ControlableObject::ProcessLogic(float _time)
 
 	// вызов метода сдвига объекта
 	GenerateShift(_time);
+}
+
+void ControlableObject::SetControllable(bool _f)
+{
+	m_controllable = _f;
 }

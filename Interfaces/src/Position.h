@@ -36,4 +36,7 @@ public:
 
 	// получить координату Y
 	const int& GetY() const { return m_y; }
+
+	// получить позицию
+	Position GetPos() { return *this; }
 };
