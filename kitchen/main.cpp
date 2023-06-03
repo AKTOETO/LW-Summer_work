@@ -176,23 +176,23 @@ int main()
 {
 	const int num = 3;
 
-	// объекты кухни
-	KitchenAppliance* kitchen[num] =
-	{
-		new Fridge(20, 10, 15),
-		new Kettle(15, 50, 20),
-		new Squeezer(0, 30, 20)
-	};
+	//// объекты кухни
+	//KitchenAppliance* kitchen[num] =
+	//{
+	//	new Fridge(20, 10, 15),
+	//	new Kettle(15, 50, 20),
+	//	new Squeezer(0, 30, 20)
+	//};
 
-	// обработка объектов кухни
-	for (int i = 0; i < num; i++)
-	{
-		kitchen[i]->MainFunction();
-		kitchen[i]->Draw();
-	}
+	//// обработка объектов кухни
+	//for (int i = 0; i < num; i++)
+	//{
+	//	kitchen[i]->MainFunction();
+	//	kitchen[i]->Draw();
+	//}
 
-	// удаление объеков кухни
-	for (int i = 0; i < num; i++)
-		delete kitchen[i];
+	//// удаление объеков кухни
+	//for (int i = 0; i < num; i++)
+	//	delete kitchen[i];
 	return 0;
 }
