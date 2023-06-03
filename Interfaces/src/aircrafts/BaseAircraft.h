@@ -5,13 +5,17 @@
 
 class BaseAircraft :
 	public IGameObject,
-	public ControlableObject
+	public ControlableObject,
+	public Position
 {
 private:
 	// сдвиг объекта
 	virtual void ProcessMove(Position _shift) override;
 
 protected:
+
+	// смещения объектов
+	std::vector<Position> m_shifts;
 
 	// список частей самолета
 	std::vector<BaseAircraftPart*> m_aircraft_parts;
@@ -21,7 +25,7 @@ public:
 	BaseAircraft() = delete;
 
 	// конструктор
-	BaseAircraft(float _speed);
+	BaseAircraft(float _speed, Position _pos);
 
 	virtual ~BaseAircraft();
 

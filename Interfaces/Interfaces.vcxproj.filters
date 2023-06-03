@@ -54,6 +54,12 @@
     <ClCompile Include="src\aircrafts\SlowAircraft.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\aircrafts parts\Window.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\aircrafts\WindowAircraft.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h">
@@ -123,6 +129,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\aircrafts\SlowAircraft.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\aircrafts parts\Window.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\aircrafts\WindowAircraft.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

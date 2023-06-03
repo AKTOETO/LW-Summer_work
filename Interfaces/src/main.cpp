@@ -1,6 +1,7 @@
 #pragma once
 #include "aircrafts/Aircraft.h"
 #include "aircrafts/SlowAircraft.h"
+#include "aircrafts/WindowAircraft.h"
 #include "barriers/Mountain.h"
 
 HWND GetConcolWindow(); //указатель на консольное окно
@@ -12,7 +13,7 @@ int main(int argc, char* argv[])
 {
 	//получим дескриптор консольного окна
 	HWND hwnd = GetConcolWindow();
-	
+
 	//если дескриптор существует
 	if (hwnd != NULL)
 	{
@@ -24,13 +25,14 @@ int main(int argc, char* argv[])
 			// тут будет 5 элементов
 			std::vector<BaseAircraft*> aircrafts =
 			{
-				new Aircraft({hdc, {100,100}}),              
-				new SlowAircraft({hdc, {100,100}}),              
-				//new CargoAircraft(100, 100, hdc, 7, {100,100}, GREEN),            // CargoAircraft 1
-				//new DeadAircraft(100, 100, hdc, 0, {150,150}, BLACK),             // DeadAircraft 2
-				//new RocketCarrierAircraft(100, 100, hdc, 10, {150,150}, YELLOW),  // RocketCarrierAircraft 3
+				new Aircraft({hdc, {100,100}}),
+				new SlowAircraft({hdc, {100,150}}),
+				new WindowAircraft({hdc, {0,0}}),
+				//new CargoAircraft(100, 100, hdc, 7, {100,100}, GREEN),           
+				//new DeadAircraft(100, 100, hdc, 0, {150,150}, BLACK),            
+				//new RocketCarrierAircraft(100, 100, hdc, 10, {150,150}, YELLOW), 
 			};
-			
+
 			// массив указателей на препятствия
 			// тут будет 3 элемента
 			std::vector<BaseBarrier*> bars =
@@ -49,9 +51,9 @@ int main(int argc, char* argv[])
 			// t - номер полученного после пересечения самолета из массива aircrafts
 			std::vector<std::vector<int>> collis =
 			{
-				{1, 1, 1},
-				{0, 0, 0},
-				//{2, 2, 2},
+				{1, 2, 1},
+				{0, 2, 0},
+				{2, 0, 2},
 				//{2, 0, 3},
 			};
 
@@ -108,7 +110,7 @@ int main(int argc, char* argv[])
 						aircrafts[new_aircraft]->SetVisible();
 						//cur_air->Hide();
 						//aircrafts[new_aircraft]->Show();
-						std::cout << new_aircraft << std::endl;
+						//std::cout << new_aircraft << std::endl;
 						// присваиваю текущий самолет текущему указателю на самолет
 						cur_air = aircrafts[new_aircraft];
 						cur_air->ProcessShow();
@@ -149,14 +151,14 @@ bool CollisionHitbox(const HitBox& _first, const HitBox& _second)
 	int b1 = _first.GetY() + _first.GetHeight();
 	int r2 = _second.GetX() + _second.GetWidth();
 	int b2 = _second.GetY() + _second.GetHeight();
-	return 
-		(_first.GetX() < r2) && (_second.GetX() < r1) && 
+	return
+		(_first.GetX() < r2) && (_second.GetX() < r1) &&
 		(_first.GetY() < b2) && (_second.GetY() < b1);
 }
 
 bool CollisionGameObjects(std::list<HitBox> _moveable, std::list<HitBox> _barrier)
 {
-	for(auto& f:_moveable)
+	for (auto& f : _moveable)
 	{
 		for (auto& s : _barrier)
 		{

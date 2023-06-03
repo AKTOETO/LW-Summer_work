@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IAircraftPart" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAACCAAAAAA=</HashCode>
+      <FileName>Aircrafts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABCBaseAircraft" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAgQAFAAAAAAAAAAEAgAAAAICCAgAAAA=</HashCode>
+      <FileName>Aircrafts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aircraft" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aircrafts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BrokenAircraft" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Aircrafts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FuselageAircraft" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aircrafts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Position" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAYgAAAAAAhAQAAAAAAAYAAAAAAAAgA=</HashCode>
+      <FileName>Position.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HitBox" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAABRAAAAABAAAAAEACCAAAAAEAAAAA=</HashCode>
+      <FileName>HitBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IBarrierPart" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barriers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABCBaseBarrier" Collapsed="true">
+    <Position X="14.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAgAAEEAAAAAAAAAkAAAAAAIAAAgAAAA=</HashCode>
+      <FileName>Barriers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LightBarrier" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Barriers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HugeBarrier" Collapsed="true">
+    <Position X="14.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barriers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RectBarrier" Collapsed="true">
+    <Position X="16.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Barriers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

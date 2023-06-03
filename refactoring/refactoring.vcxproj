@@ -21,21 +21,21 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{dd6f7cc5-5c63-4264-b972-68bc8c91991c}</ProjectGuid>
-    <RootNamespace>Interfaces</RootNamespace>
+    <ProjectGuid>{823de15c-297d-4177-9806-a4844ef42ab8}</ProjectGuid>
+    <RootNamespace>refactoring</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -70,6 +70,18 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -104,9 +116,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -121,9 +130,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,53 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\aircrafts\SlowAircraft.cpp" />
-    <ClCompile Include="src\barriers\Mountain.cpp" />
-    <ClCompile Include="src\barriers parts\Rock.cpp" />
-    <ClCompile Include="src\DrawableObject.cpp" />
-    <ClCompile Include="src\barriers\BaseBarrier.cpp" />
-    <ClCompile Include="src\aircrafts\Aircraft.cpp" />
-    <ClCompile Include="src\aircrafts\BaseAircraft.cpp" />
-    <ClCompile Include="src\ControlableObject.cpp" />
-    <ClCompile Include="src\aircrafts parts\Fuselage.cpp" />
-    <ClCompile Include="src\aircrafts parts\AircraftPart.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
-    </ClCompile>
-    <ClCompile Include="src\aircrafts parts\Wing.cpp" />
-    <ClCompile Include="src\aircrafts parts\Window.cpp" />
-    <ClCompile Include="src\aircrafts\WindowAircraft.cpp" />
+    <ClCompile Include="refactoring.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\aircrafts\SlowAircraft.h" />
-    <ClInclude Include="src\barriers\Mountain.h" />
-    <ClInclude Include="src\barriers parts\IncludeBarrierParts.h" />
-    <ClInclude Include="src\barriers parts\Rock.h" />
-    <ClInclude Include="src\aircrafts parts\BaseAircraftPart.h" />
-    <ClInclude Include="src\barriers parts\BaseBarrierPart.h" />
-    <ClInclude Include="src\DrawableObject.h" />
-    <ClInclude Include="src\barriers\BaseBarrier.h" />
-    <ClInclude Include="src\aircrafts\BaseAircraft.h" />
-    <ClInclude Include="src\IGameObject.h" />
-    <ClInclude Include="src\aircrafts parts\IncludeParts.h" />
-    <ClInclude Include="src\aircrafts\Aircraft.h" />
-    <ClInclude Include="src\ControlableObject.h" />
-    <ClInclude Include="src\aircrafts parts\Fuselage.h" />
-    <ClInclude Include="src\aircrafts parts\AircraftPart.h" />
-    <ClInclude Include="src\aircrafts parts\IAircraftPart.h" />
-    <ClInclude Include="src\Constants.h" />
-    <ClInclude Include="src\Context.h" />
-    <ClInclude Include="src\Events.h" />
-    <ClInclude Include="src\HitBox.h" />
-    <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Position.h" />
-    <ClInclude Include="src\aircrafts parts\Wing.h" />
-    <ClInclude Include="src\aircrafts parts\Window.h" />
-    <ClInclude Include="src\aircrafts\WindowAircraft.h" />
+    <ClInclude Include="Aircrafts.h" />
+    <ClInclude Include="Barriers.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="HitBox.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Position.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
