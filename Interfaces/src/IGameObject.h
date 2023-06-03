@@ -14,7 +14,13 @@ public:
 	// переместить объект на определенные координаты
 	virtual void SetPosition(Position) = 0;
 
-	// отрисовка
+	// отрисовка статичниых объектов
 	virtual void ProcessDraw() = 0;
+
+	// отрисовка динамичных объектов(пр€чем объект)
+	virtual void ProcessHide() = 0;
+
+	// отрисовка динамичных объектов(показываем объект)
+	virtual void ProcessShow() = 0;
 };
 

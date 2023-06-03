@@ -50,3 +50,15 @@ void BaseAircraft::ProcessDraw()
 	for (auto& el : m_aircraft_parts)
 		el->ProcessDraw();
 }
+
+void BaseAircraft::ProcessHide()
+{
+	for (auto& el : m_aircraft_parts)
+		el->ProcessHide();
+}
+
+void BaseAircraft::ProcessShow()
+{
+	for (auto& el : m_aircraft_parts)
+		el->ProcessShow();
+}

@@ -32,8 +32,14 @@ public:
 	DrawableObject(const DrawableObjectContext&);
 	virtual ~DrawableObject();
 
-	// отрисовка объекта
+	// отрисовка статичного объекта 
 	virtual void ProcessDraw();
+
+	// отрисовка динамичного объекта (прячем)
+	virtual void ProcessHide();
+
+	// отрисовка динамичного объекта (показываем)
+	virtual void ProcessShow();
 
 	// видно ли объект
 	virtual void SetVisible(bool);

@@ -23,21 +23,20 @@ int main(int argc, char* argv[])
 		{
 			HdcPos cnt(hdc, { 100,100 });
 			Aircraft ar(cnt);
+			ar.SetVisible();
 
 			cnt.m_pos.SetPos({ 200,200 });
 			Mountain mn(cnt);
 			
 			while (1)
 			{
-				//wng.ProcessDraw();
+				ar.ProcessHide();
 				ar.ProcessLogic(1);	
-				ar.ProcessDraw();
+				ar.ProcessShow();
 
 				mn.ProcessDraw();
 
 				Sleep(10);
-				FillConsoleOutputAttribute(hout, 255, 8000, point, &l); // очистка экрана
-				//system("cls");
 			}
 		}
 	}

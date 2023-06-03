@@ -32,5 +32,11 @@ public:
 	// отрисовка
 	virtual void ProcessDraw() override;
 
+	// отрисовка динамичных объектов(пр€чем объект)
+	virtual void ProcessHide() override;
+
+	// отрисовка динамичных объектов(показываем объект)
+	virtual void ProcessShow() override;
+
 };
 

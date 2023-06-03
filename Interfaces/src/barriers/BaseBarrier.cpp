@@ -42,3 +42,15 @@ void BaseBarrier::ProcessDraw()
 	for (auto& el : m_parts)
 		el->ProcessDraw();
 }
+
+void BaseBarrier::ProcessHide()
+{
+	for (auto& el : m_parts)
+		el->ProcessHide();
+}
+
+void BaseBarrier::ProcessShow()
+{
+	for (auto& el : m_parts)
+		el->ProcessShow();
+}

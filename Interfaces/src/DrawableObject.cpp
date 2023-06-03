@@ -41,6 +41,17 @@ void DrawableObject::ProcessDraw()
 	}
 }
 
+void DrawableObject::ProcessHide()
+{
+	Hide();
+}
+
+void DrawableObject::ProcessShow()
+{
+
+	Show();
+}
+
 void DrawableObject::SetVisible(bool _b)
 {
 	m_is_visisble = _b;
