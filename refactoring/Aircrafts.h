@@ -14,13 +14,26 @@ protected:
 	// окно
 	virtual void Window() = 0;
 
-	// кломаный фюзеляж
+	// двигатель сзади
+	virtual void RearEngine() = 0;
+
+	// двигатель под крылом
+	virtual void UnderWingEngine() = 0;
+
+	// cломаный фюзеляж
 	virtual void BrokenFuselage() = 0;
+
+	// сломанное крыло
+	virtual void BrokenWing() = 0;
+
+	// сломанное окно
+	virtual void BrokenWindow() = 0;
+
 };
 
 // Абстрактный базовый класс самолета
 // реализует функции отрисовки частей самолета
-class ABCBaseAircraft:
+class ABCAircraft:
 	public IAircraftPart,
 	public HitBox
 {
@@ -43,12 +56,24 @@ protected:
 	// иллюминатор
 	virtual void Window() override;
 
+	// двигатель сзади
+	virtual void RearEngine() override;
+
+	// двигатель под крылом
+	virtual void UnderWingEngine() override;
+
 	// сломанный самолет
 	virtual void BrokenFuselage() override;
 
+	// сломанное крыло
+	virtual void BrokenWing() override;
+
+	// сломанное окно
+	virtual void BrokenWindow() override;
+
 public:
 	// конструктор
-	ABCBaseAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed);
+	ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed);
 	
 	// метод скрытия объекта
 	void Hide();
@@ -67,35 +92,55 @@ public:
 
 // легкий самолет
 class LightAircraft :
-	public ABCBaseAircraft
+	public ABCAircraft
 {
 public:
 	// конструктор
 	LightAircraft(HDC _hdc);
 
+protected:
+
 	// Отрисовка самолета
+	virtual void Draw() override;
+};
+
+// быстрый самолет
+class FastAircraft :
+	public ABCAircraft
+{
+public:
+	// конструктор
+	FastAircraft(HDC _hdc);
+
+protected:
+
+	// Отрисовка самолета
+	virtual void Draw() override;
+};
+
+// очень быстрый самолет
+class VeryFastAircraft :
+	public ABCAircraft
+{
+public:
+	// конструктор
+	VeryFastAircraft(HDC _hdc);
+
+protected:
+
+	// отрисовка самолета
 	virtual void Draw() override;
 };
 
 // сломанный самолет
 class BrokenAircraft :
-	public ABCBaseAircraft
+	public ABCAircraft
 {
 public:
 	// конструктор
 	BrokenAircraft(HDC _hdc);
 
-	// Отрисовка самолета
-	virtual void Draw() override;
-};
-
-// только фюзеляж
-class FuselageAircraft :
-	public ABCBaseAircraft
-{
-public:
-	// конструктор
-	FuselageAircraft(HDC _hdc);
+protected:
 
 	// Отрисовка самолета
 	virtual void Draw() override;

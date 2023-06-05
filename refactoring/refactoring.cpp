@@ -22,7 +22,7 @@ using namespace std;           // Пространство имен std
 /*               П Р О Т О Т И П Ы    Ф У Н К Ц И Й                    */
 /*---------------------------------------------------------------------*/
 HWND GetConcolWindow(); //указатель на консольное окно
-bool Collision(const ABCBaseAircraft& _air, const ABCBaseBarrier& _bar);
+bool Collision(const ABCAircraft& _air, const ABCBarrier& _bar);
 
 /***********************************************************************/
 /*               О С Н О В Н А Я    П Р О Г Р А М М А                  */
@@ -42,21 +42,21 @@ int main()
 		if (hdc != 0)
 		{
 			// массив указателей на самолеты
-			// тут будет 5 элементов
-			std::vector<ABCBaseAircraft*> aircrafts =
+			std::vector<ABCAircraft*> aircrafts =
 			{
-				new LightAircraft(hdc),
-				new BrokenAircraft(hdc),
-				new FuselageAircraft(hdc),
+				new LightAircraft(hdc),		// 0
+				new FastAircraft(hdc),		// 1
+				new VeryFastAircraft(hdc),	// 2
+				new BrokenAircraft(hdc),	// 3
 			};
 
 			// массив указателей на препятствия
 			// тут будет 3 элемента
-			std::vector<ABCBaseBarrier*> bars =
+			std::vector<ABCBarrier*> bars =
 			{
-				new LightBarrier(hdc),
-				new HugeBarrier(hdc),
-				new RectBarrier(hdc),
+				new Mountain(hdc),
+				new UpgradeTower(hdc),
+				new DowngradeTower(hdc),
 			};
 
 			// матрица пересечений
@@ -66,9 +66,10 @@ int main()
 			// t - номер полученного после пересечения самолета из массива aircrafts
 			std::vector<std::vector<int>> collis =
 			{
-				{0, 1, 2},
-				{2, 1, 0},
-				{1, 0, 2},
+				{3, 1, 0},
+				{3, 2, 0},
+				{3, 2, 1},
+				{3, 3, 3},
 			};
 
 			// есть ли пересачение самолета с текущим препятствием
@@ -78,7 +79,7 @@ int main()
 
 			// указатель на текущий самолет
 			int cur_aircraft_index = 0;
-			ABCBaseAircraft* cur_air = aircrafts[cur_aircraft_index];
+			ABCAircraft* cur_air = aircrafts[cur_aircraft_index];
 
 			// главный цикл программы
 			while (!KEY_DOWN(K_EXIT))
@@ -161,7 +162,7 @@ HWND GetConcolWindow()
 //end GetConcolWindow()
 
 // просчет колизии
-bool Collision(const ABCBaseAircraft& _air, const ABCBaseBarrier& _bar)
+bool Collision(const ABCAircraft& _air, const ABCBarrier& _bar)
 {
 	int r1 = _air.GetX() + _air.GetWidth();
 	int b1 = _air.GetY() + _air.GetHeight();

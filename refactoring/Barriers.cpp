@@ -6,42 +6,48 @@
 // А Б С Т Р А К Т Н Ы Й   К Л А С С //
 //===================================//
 
-	// камень
-void ABCBaseBarrier::Rock()
+// камень
+void ABCBarrier::Rock()
 {
 	// камень
-	MoveToEx(m_hdc, GetX(), GetY(), NULL);
-	LineTo(m_hdc, GetShiftedX(5), GetShiftedY(100));
-	LineTo(m_hdc, GetShiftedX(50), GetShiftedY(100));
-	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(0));
-};
+	MoveToEx(m_hdc, GetShiftedX(10), GetShiftedY(0), NULL);
+	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(10));
+	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(90));
+	LineTo(m_hdc, GetShiftedX(10), GetShiftedY(100));
+	LineTo(m_hdc, GetShiftedX(90), GetShiftedY(100));
+	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(90));
+	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(10));
+	LineTo(m_hdc, GetShiftedX(90), GetShiftedY(0));
+	LineTo(m_hdc, GetShiftedX(10), GetShiftedY(0));
+}
 
-// большой камень
-void ABCBaseBarrier::HugeRock()
+// башня улучшения самолета
+void ABCBarrier::Upgrade()
 {
-	// большой камень
-	MoveToEx(m_hdc, GetX(), GetY(), NULL);
-	LineTo(m_hdc, GetShiftedX(20), GetY());
-	LineTo(m_hdc, GetShiftedX(25), GetShiftedY(20));
-	LineTo(m_hdc, GetShiftedX(35), GetShiftedY(50));
-	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(100));
-	LineTo(m_hdc, GetShiftedX(50), GetShiftedY(50));
+	MoveToEx(m_hdc, GetShiftedX(50), GetY(), NULL);
+	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(20));
+	LineTo(m_hdc, GetShiftedX(70), GetShiftedY(20));
+	LineTo(m_hdc, GetShiftedX(70), GetShiftedY(100));
+	LineTo(m_hdc, GetShiftedX(30), GetShiftedY(100));
+	LineTo(m_hdc, GetShiftedX(30), GetShiftedY(20));
 	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(20));
-	LineTo(m_hdc, GetX(), GetY());
-};
+	LineTo(m_hdc, GetShiftedX(50), GetShiftedY(0));
+}
 
-// прямоугольник
-void ABCBaseBarrier::Rectangle()
+// башня ухудшения самолета
+void ABCBarrier::Downgrade()
 {
-	// прямоугольник
-	MoveToEx(m_hdc, GetX(), GetY(), NULL);
-	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(0));
-	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(100));
-	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(100));
-	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(0));
-};
+	MoveToEx(m_hdc, GetShiftedX(50), GetShiftedY(100), NULL);
+	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(80));
+	LineTo(m_hdc, GetShiftedX(70), GetShiftedY(80));
+	LineTo(m_hdc, GetShiftedX(70), GetShiftedY(0));
+	LineTo(m_hdc, GetShiftedX(30), GetShiftedY(0));
+	LineTo(m_hdc, GetShiftedX(30), GetShiftedY(80));
+	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(80));
+	LineTo(m_hdc, GetShiftedX(50), GetShiftedY(100));
+}
 
-void ABCBaseBarrier::Hide()
+void ABCBarrier::Hide()
 {
 	// зарисовываю фигуру белым цветом
 	HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
@@ -50,7 +56,7 @@ void ABCBaseBarrier::Hide()
 	DeleteObject(Pen);
 };
 
-void ABCBaseBarrier::Show()
+void ABCBarrier::Show()
 {
 	// зарисовываю фигуру красным цветом
 	HPEN Pen = CreatePen(PS_SOLID, 3, m_color);
@@ -59,11 +65,11 @@ void ABCBaseBarrier::Show()
 	DeleteObject(Pen);
 };
 
-ABCBaseBarrier::ABCBaseBarrier(HDC _hdc, HitBox _box, COLORREF _color)
-	:HitBox(_box), m_hdc(_hdc), m_color(_color) 
+ABCBarrier::ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color)
+	:HitBox(_box), m_hdc(_hdc), m_color(_color)
 {}
 
-void ABCBaseBarrier::ProcessDraw()
+void ABCBarrier::ProcessDraw()
 {
 	// прячем объект
 	Hide();
@@ -77,31 +83,31 @@ void ABCBaseBarrier::ProcessDraw()
 //=======================//
 
 // легкое препятствие
-LightBarrier::LightBarrier(HDC _hdc)
-	:ABCBaseBarrier(_hdc, { 200,500,50,50 }, YELLOW)
+Mountain::Mountain(HDC _hdc)
+	:ABCBarrier(_hdc, { 100,400,100,100 }, BLACK)
 {}
 
-void LightBarrier::Draw()
+void Mountain::Draw()
 {
 	Rock();
 }
 
 // большое препятствие
-HugeBarrier::HugeBarrier(HDC _hdc)
-	:ABCBaseBarrier(_hdc, { 200,200,100,100 }, GREEN)
+UpgradeTower::UpgradeTower(HDC _hdc)
+	:ABCBarrier(_hdc, { 400,200,80,100 }, GREEN)
 {}
 
-void HugeBarrier::Draw()
+void UpgradeTower::Draw()
 {
-	HugeRock();
+	Upgrade();
 }
 
 // прямоугольник
-RectBarrier::RectBarrier(HDC _hdc)
-	:ABCBaseBarrier(_hdc, { 400, 300, 150,150 }, BLACK)
+DowngradeTower::DowngradeTower(HDC _hdc)
+	:ABCBarrier(_hdc, { 400,300,80,100 }, RED)
 {}
 
-void RectBarrier::Draw()
+void DowngradeTower::Draw()
 {
-	Rectangle();
+	Downgrade();
 }

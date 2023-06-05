@@ -5,18 +5,18 @@
 class IBarrierPart
 {
 protected:
+	// башн€ улучшений
+	virtual void Upgrade() = 0;
+
+	// башн€ понижени€ самолета
+	virtual void Downgrade() = 0;
+
 	// камень
 	virtual void Rock() = 0;
-
-	// большой камень
-	virtual void HugeRock() = 0;
-
-	// пр€моугольник
-	virtual void Rectangle() = 0;
 };
 
 // абстрактный базовый класс преп€тстви€
-class ABCBaseBarrier :
+class ABCBarrier :
 	public IBarrierPart,
 	public HitBox
 {
@@ -31,11 +31,11 @@ protected:
 	// камень
 	virtual void Rock() override;
 
-	// большой камень
-	virtual void HugeRock() override;
+	// башн€ улучшений
+	virtual void Upgrade() override;
 
-	// пр€моугольник
-	virtual void Rectangle() override;
+	// башн€ понижени€ самолета
+	virtual void Downgrade() override;
 
 private:
 
@@ -47,43 +47,50 @@ private:
 
 public:
 	// конструктор
-	ABCBaseBarrier(HDC _hdc, HitBox _box, COLORREF _color);
+	ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color);
 
 	// отрисовка преп€тстви€
 	void ProcessDraw();
 };
 
-// легкое преп€тствие
-class LightBarrier :
-	public ABCBaseBarrier
+// камень
+class Mountain :
+	public ABCBarrier
 {
 public:
+
 	// конструктор
-	LightBarrier(HDC _hdc);
+	Mountain(HDC _hdc);
+
+protected:
 
 	// отрисовка преп€тстви€
 	virtual void Draw() override;
 };
 
-// большое преп€тствие
-class HugeBarrier :
-	public ABCBaseBarrier
+// Ѕашн€ улучшени€
+class UpgradeTower :
+	public ABCBarrier
 {
 public:
 	// конструктор
-	HugeBarrier(HDC _hdc);
+	UpgradeTower(HDC _hdc);
+
+protected:
 
 	// отрисовка преп€тстви€
 	virtual void Draw() override;
 };
 
-// пр€моугольник
-class RectBarrier :
-	public ABCBaseBarrier
+// башн€ ухудшени€
+class DowngradeTower :
+	public ABCBarrier
 {
 public:
 	// конструктор
-	RectBarrier(HDC _hdc);
+	DowngradeTower(HDC _hdc);
+
+protected:
 
 	// отрисовка преп€тстви€
 	virtual void Draw() override;
