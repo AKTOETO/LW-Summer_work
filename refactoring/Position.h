@@ -12,31 +12,31 @@ protected:
 public:
 
 	// конструктор
-	Position(int _x, int _y) :m_x(_x), m_y(_y) {};
+	Position(int _x, int _y);
 
 	// вычислить расстояние сдвига
 	// и сдвинуть координаты
-	void CalcShiftPos(const Position& _pos) { ShiftPos({ _pos.GetX() - m_x, _pos.GetY() - m_y}); }
+	void CalcShiftPos(const Position& _pos);
 
 	// сдвинуть координаты X Y на _pos
-	void ShiftPos(const Position& _pos) { m_x += _pos.GetX(); m_y += _pos.GetY(); }
+	void ShiftPos(const Position& _pos);
 
 	// установить координату X
-	void SetX(int _x) { m_x = _x; }
+	void SetX(int _x);
 
 	// установить координату Y
-	void SetY(int _y) { m_y = _y; }
+	void SetY(int _y);
 
 	// установить координаты X Y
-	void SetPos(int _x, int _y) { SetX(_x); SetY(_y); }
-	void SetPos(const Position& _pos) { SetX(_pos.GetX()); SetY(_pos.GetY()); }
+	void SetPos(int _x, int _y);
+	void SetPos(const Position& _pos);
 
 	// получить координату X
-	const int& GetX() const { return m_x; }
+	const int& GetX() const;
 
 	// получить координату Y
-	const int& GetY() const { return m_y; }
+	const int& GetY() const;
 
 	// получить позицию
-	Position GetPos() { return *this; }
+	Position GetPos();
 };
