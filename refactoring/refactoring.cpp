@@ -7,9 +7,9 @@
 *Language     :C++                                                        *
 *Programmers  :Плоцкий Богдан Андреевич     М3О-211Б-21      		      *
 *Modified By  :Плоцкий Богдан Андреевич     М3О-211Б-21                   *
-*Created      :1.05.2023                                                  *
-*Last revision:22.06.2023                                                 *
-*Comments	  :Динамический полиморфизм                                   *
+*Created      :01.05.2023                                                 *
+*Last revision:06.06.2023                                                 *
+*Comments	  :ИНТЕРФЕЙСЫ И АБСТРАКТНЫЕ БАЗОВЫЕ КЛАССЫ                    *
 **************************************************************************/
 
 #include "pch.h"
@@ -21,7 +21,7 @@ using namespace std;           // Пространство имен std
 /*---------------------------------------------------------------------*/
 /*               П Р О Т О Т И П Ы    Ф У Н К Ц И Й                    */
 /*---------------------------------------------------------------------*/
-HWND GetConcolWindow(); //указатель на консольное окно
+HWND GetConcolWindow(); // указатель на консольное окно
 bool Collision(const ABCAircraft& _air, const ABCBarrier& _bar);
 
 /***********************************************************************/
@@ -41,8 +41,11 @@ int main()
 		//если контекст существует - можем работать
 		if (hdc != 0)
 		{
+			// количество самолетов
+			const int aircraft_number = 4;
+
 			// массив указателей на самолеты
-			std::vector<ABCAircraft*> aircrafts =
+			ABCAircraft* aircrafts[aircraft_number] =
 			{
 				new LightAircraft(hdc),		// 0
 				new FastAircraft(hdc),		// 1
@@ -50,9 +53,12 @@ int main()
 				new BrokenAircraft(hdc),	// 3
 			};
 
+			// количество препятствий
+			const int barrier_number = 3;
+
 			// массив указателей на препятствия
 			// тут будет 3 элемента
-			std::vector<ABCBarrier*> bars =
+			ABCBarrier* bars[barrier_number] =
 			{
 				new Mountain(hdc),
 				new UpgradeTower(hdc),
@@ -64,7 +70,7 @@ int main()
 			// i - номер самолета из массива aircrafts
 			// j - номер препятствия из массива bars
 			// t - номер полученного после пересечения самолета из массива aircrafts
-			std::vector<std::vector<int>> collis =
+			int collis[aircraft_number][barrier_number] =
 			{
 				{3, 1, 0},
 				{3, 2, 0},
@@ -72,10 +78,19 @@ int main()
 				{3, 3, 3},
 			};
 
-			// есть ли пересачение самолета с текущим препятствием
-			std::vector<bool> is_collision(bars.size(), 0);
-			// было ли пересачение самолета с текущим препятствием
-			std::vector<bool> was_changed(bars.size(), 0);
+			// есть ли пересечение самолета с текущим препятствием
+			bool is_collision[barrier_number];
+
+			// обнуляем весь массив
+			for (int i = 0; i < barrier_number; i++)
+				is_collision[i] = 0;
+
+			// было ли пересечение самолета с текущим препятствием
+			bool was_changed[barrier_number];
+
+			// обнуляем весь массив
+			for (int i = 0; i < barrier_number; i++)
+				was_changed[i] = 0;
 
 			// указатель на текущий самолет
 			int cur_aircraft_index = 0;
@@ -85,13 +100,14 @@ int main()
 			while (!KEY_DOWN(K_EXIT))
 			{
 				// отрисовка всех препятствий
-				std::for_each(bars.begin(), bars.end(), [](const auto& _bar) {_bar->ProcessDraw(); });
+				for (int i = 0; i < barrier_number; i++)
+					bars[i]->ProcessDraw();
 
 				// Отрисовка
 				cur_air->ProcessDraw();
 
 				// обработка столкновений
-				for (int j = 0; j < collis[0].size(); j++)
+				for (int j = 0; j < barrier_number; j++)
 				{
 					// если самолет и препятствие пересеклось
 					if (Collision(*cur_air, *bars[j]))
@@ -129,9 +145,9 @@ int main()
 						was_changed[j] = 1;
 					}
 				}
+				// ждем 10 миллисекунд
 				Sleep(10);
 			}
-
 		}//end if
 	}//end if
 	return 0;
