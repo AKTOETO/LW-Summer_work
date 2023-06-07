@@ -42,19 +42,20 @@ int main()
 		if (hdc != 0)
 		{
 			// количество самолетов
-			const int aircraft_number = 4;
+			const int aircraft_number = 5;
 
 			// массив указателей на самолеты
 			ABCAircraft* aircrafts[aircraft_number] =
 			{
-				new LightAircraft(hdc),		// 0
-				new FastAircraft(hdc),		// 1
-				new VeryFastAircraft(hdc),	// 2
-				new BrokenAircraft(hdc),	// 3
+				new LightAircraft(hdc),			// 0
+				new FastAircraft(hdc),			// 1
+				new VeryFastAircraft(hdc),		// 2
+				new BrokenAircraft(hdc),		// 3
+				new InherBrokenAircraft(hdc),	// 4
 			};
 
 			// количество препятствий
-			const int barrier_number = 3;
+			const int barrier_number = 4;
 
 			// массив указателей на препятствия
 			// тут будет 3 элемента
@@ -63,6 +64,7 @@ int main()
 				new Mountain(hdc),
 				new UpgradeTower(hdc),
 				new DowngradeTower(hdc),
+				new InherDowngradeTower(hdc),
 			};
 
 			// матрица пересечений
@@ -72,10 +74,11 @@ int main()
 			// t - номер полученного после пересечения самолета из массива aircrafts
 			int collis[aircraft_number][barrier_number] =
 			{
-				{3, 1, 0},
-				{3, 2, 0},
-				{3, 2, 1},
-				{3, 3, 3},
+				{3, 1, 0, 4},
+				{3, 2, 0, 4},
+				{3, 2, 1, 4},
+				{3, 3, 3, 4},
+				{3, 3, 3, 4},
 			};
 
 			// есть ли пересечение самолета с текущим препятствием

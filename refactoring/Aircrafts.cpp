@@ -193,3 +193,13 @@ void BrokenAircraft::Draw()
 	BrokenWindow();
 	BrokenWing();
 }
+
+InherBrokenAircraft::InherBrokenAircraft(HDC _hdc)
+	:BrokenAircraft(_hdc)
+{
+}
+
+void InherBrokenAircraft::Draw()
+{
+	BrokenFuselage();
+}

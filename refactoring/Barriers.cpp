@@ -103,11 +103,21 @@ void UpgradeTower::Draw()
 }
 
 // прямоугольник
-DowngradeTower::DowngradeTower(HDC _hdc)
-	:ABCBarrier(_hdc, { 400,300,80,100 }, RED)
+DowngradeTower::DowngradeTower(HDC _hdc, HitBox _hb)
+	:ABCBarrier(_hdc, _hb, RED)
 {}
 
 void DowngradeTower::Draw()
 {
 	Downgrade();
+}
+
+InherDowngradeTower::InherDowngradeTower(HDC _hdc)
+	:DowngradeTower(_hdc, {200, 300, 200, 200})
+{
+}
+
+void InherDowngradeTower::Draw()
+{
+	Rock();
 }

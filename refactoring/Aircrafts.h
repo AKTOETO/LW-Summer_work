@@ -145,3 +145,17 @@ protected:
 	// Отрисовка самолета
 	virtual void Draw() override;
 };
+
+// потомок сломанного самолета
+class InherBrokenAircraft :
+	public BrokenAircraft
+{
+public:
+	// конструктор
+	InherBrokenAircraft(HDC _hdc);
+
+protected:
+
+	// отрисовка самолета
+	virtual void Draw() override;
+};

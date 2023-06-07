@@ -88,10 +88,23 @@ class DowngradeTower :
 {
 public:
 	// конструктор
-	DowngradeTower(HDC _hdc);
+	DowngradeTower(HDC _hdc, HitBox _hb = { 400,300,80,100 });
 
 protected:
 
 	// отрисовка препятствия
+	virtual void Draw() override;
+};
+
+// башня наследник
+class InherDowngradeTower :
+	public DowngradeTower
+{
+public:
+	// конструктор
+	InherDowngradeTower(HDC _hdc);
+
+protected:
+
 	virtual void Draw() override;
 };
