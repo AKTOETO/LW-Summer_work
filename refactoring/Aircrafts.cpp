@@ -89,55 +89,57 @@ void ABCAircraft::BrokenWindow()
 }
 
 ABCAircraft::ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed)
-	:HitBox(_box), m_hdc(_hdc), m_color(_color), m_speed(_speed) {};
+//:HitBox(_box), m_hdc(_hdc), m_color(_color), m_speed(_speed)
+	:ABCControllableObject(_hdc, _box, _color, _speed)
+{};
 
-void ABCAircraft::Hide()
-{
-	// зарисовываю фигуру белым цветом
-	HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
-	SelectObject(m_hdc, Pen);
-	Draw();
-	DeleteObject(Pen);
-};
-
-void ABCAircraft::Show()
-{
-	// зарисовываю фигуру красным цветом
-	HPEN Pen = CreatePen(PS_SOLID, 3, m_color);
-	SelectObject(m_hdc, Pen);
-	Draw();
-	DeleteObject(Pen);
-};
-
-void ABCAircraft::ProcessDraw()
-{
-	// прячем объект
-	Hide();
-
-	Position shift(0, 0);
-	// обработка нажатых клавиш
-	// если нажата клавиша вперед, двигаемся вверх
-	if (KEY_DOWN(K_FORWARD))
-		shift = { 0, -int(m_speed) };
-
-	// если нажата клавиша назад, двигаемся вниз
-	else if (KEY_DOWN(K_BACKWARD))
-		shift = { 0, int(m_speed) };
-
-	// если нажата клавиша назад, двигаемся вниз
-	else if (KEY_DOWN(K_LEFTWARD))
-		shift = { -int(m_speed), 0 };
-
-	// если нажата клавиша назад, двигаемся вниз
-	else if (KEY_DOWN(K_RIGHTWARD))
-		shift = { int(m_speed), 0 };
-
-	// вызов метода сдвига объекта
-	ShiftPos(shift);
-
-	// показываем объект
-	Show();
-}
+//void ABCAircraft::Hide()
+//{
+//	// зарисовываю фигуру белым цветом
+//	HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
+//	SelectObject(m_hdc, Pen);
+//	Draw();
+//	DeleteObject(Pen);
+//};
+//
+//void ABCAircraft::Show()
+//{
+//	// зарисовываю фигуру красным цветом
+//	HPEN Pen = CreatePen(PS_SOLID, 3, m_color);
+//	SelectObject(m_hdc, Pen);
+//	Draw();
+//	DeleteObject(Pen);
+//};
+//
+//void ABCAircraft::ProcessDraw()
+//{
+//	// прячем объект
+//	Hide();
+//
+//	Position shift(0, 0);
+//	// обработка нажатых клавиш
+//	// если нажата клавиша вперед, двигаемся вверх
+//	if (KEY_DOWN(K_FORWARD))
+//		shift = { 0, -int(m_speed) };
+//
+//	// если нажата клавиша назад, двигаемся вниз
+//	else if (KEY_DOWN(K_BACKWARD))
+//		shift = { 0, int(m_speed) };
+//
+//	// если нажата клавиша назад, двигаемся вниз
+//	else if (KEY_DOWN(K_LEFTWARD))
+//		shift = { -int(m_speed), 0 };
+//
+//	// если нажата клавиша назад, двигаемся вниз
+//	else if (KEY_DOWN(K_RIGHTWARD))
+//		shift = { int(m_speed), 0 };
+//
+//	// вызов метода сдвига объекта
+//	ShiftPos(shift);
+//
+//	// показываем объект
+//	Show();
+//}
 
 //=================//
 // С А М О Л Е Т Ы //

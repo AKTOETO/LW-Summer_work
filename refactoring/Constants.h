@@ -12,6 +12,7 @@
 #define K_BACKWARD  83 // S
 #define K_LEFTWARD  65 // A
 #define K_RIGHTWARD 68 // D
+#define K_SHOOT		32 // Space
 
 //===========//
 // Ö Â Å Ò À //

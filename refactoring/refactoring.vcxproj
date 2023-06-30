@@ -143,6 +143,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ControllableObject.cpp" />
+    <ClCompile Include="Missle.cpp" />
+    <ClCompile Include="MoveableObject.cpp" />
     <ClCompile Include="Aircrafts.cpp" />
     <ClCompile Include="Barriers.cpp" />
     <ClCompile Include="HitBox.cpp" />
@@ -152,14 +155,19 @@
     </ClCompile>
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="refactoring.cpp" />
+    <ClCompile Include="UncontrollableObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ControllableObject.h" />
+    <ClInclude Include="Missle.h" />
+    <ClInclude Include="MoveableObject.h" />
     <ClInclude Include="Aircrafts.h" />
     <ClInclude Include="Barriers.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="HitBox.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Position.h" />
+    <ClInclude Include="UncontrollableObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

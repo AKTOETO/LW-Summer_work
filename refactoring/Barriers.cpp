@@ -84,7 +84,11 @@ void ABCBarrier::ProcessDraw()
 
 // легкое препятствие
 Mountain::Mountain(HDC _hdc)
-	:ABCBarrier(_hdc, { 100,400,100,100 }, BLACK)
+	:ABCBarrier(_hdc, { 500,100,100,100 }, BLACK)
+{}
+
+Mountain::Mountain(HDC _hdc, Position _pos)
+	:ABCBarrier(_hdc, { _pos.GetX(), _pos.GetY(), 100, 100 }, BLACK)
 {}
 
 void Mountain::Draw()
@@ -94,7 +98,7 @@ void Mountain::Draw()
 
 // большое препятствие
 UpgradeTower::UpgradeTower(HDC _hdc)
-	:ABCBarrier(_hdc, { 400,200,80,100 }, GREEN)
+	:ABCBarrier(_hdc, { 100,100,80,100 }, GREEN)
 {}
 
 void UpgradeTower::Draw()
@@ -104,7 +108,7 @@ void UpgradeTower::Draw()
 
 // прямоугольник
 DowngradeTower::DowngradeTower(HDC _hdc)
-	:ABCBarrier(_hdc, { 400,300,80,100 }, RED)
+	:ABCBarrier(_hdc, { 100,200,80,100 }, RED)
 {}
 
 void DowngradeTower::Draw()

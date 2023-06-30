@@ -37,20 +37,18 @@ protected:
 	// башн€ понижени€ самолета
 	virtual void Downgrade() override;
 
-private:
-
-	// пр€чем объект
-	void Hide();
-
-	// показываем объект
-	void Show();
-
 public:
 	// конструктор
 	ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color);
 
 	// отрисовка преп€тстви€
 	void ProcessDraw();
+
+	// пр€чем объект
+	void Hide();
+
+	// показываем объект
+	void Show();
 };
 
 // камень
@@ -61,6 +59,9 @@ public:
 
 	// конструктор
 	Mountain(HDC _hdc);
+
+	// конструктор с заданием позиции
+	Mountain(HDC _hdc, Position _pos);
 
 protected:
 

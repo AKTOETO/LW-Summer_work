@@ -1,5 +1,6 @@
 #pragma once
 #include "pch.h"
+#include "ControllableObject.h"
 
 // интерфейс части самолета
 class IAircraftPart
@@ -35,16 +36,9 @@ protected:
 // реализует функции отрисовки частей самолета
 class ABCAircraft:
 	public IAircraftPart,
-	public HitBox
+	public ABCControllableObject
 {
 protected:
-
-	float m_speed;		// скорость самолета
-	COLORREF m_color;	// цвет самолета
-	HDC m_hdc;			// контекст консоли
-
-	// Отрисовка текущего самолета
-	virtual void Draw() = 0;
 
 	// части самолета
 	// крыло
@@ -72,18 +66,9 @@ protected:
 	virtual void BrokenWindow() override;
 
 public:
+
 	// конструктор
 	ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed);
-	
-	// метод скрытия объекта
-	void Hide();
-
-	// метод отображения объекта
-	void Show();
-	
-	// процесс отрисовки самолета
-	// и обработки перемещения самолета
-	void ProcessDraw();
 };
 
 //=================//
