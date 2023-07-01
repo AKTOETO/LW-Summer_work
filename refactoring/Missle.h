@@ -12,7 +12,7 @@ protected:
 public:
 
     // конструктор
-    Missile(HDC _hdc, Position _box, DIR _dir);
+    Missile(HDC _hdc, Position _box);
 
 };
 

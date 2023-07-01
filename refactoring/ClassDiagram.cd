@@ -3,96 +3,96 @@
   <Class Name="ABCMoveableObject" Collapsed="true">
     <Position X="7.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAACAAAAgAAEAAgAABAAAAEAgAAAAIACAggAAA=</HashCode>
+      <HashCode>AAIAAAAACAAQAgAAEAAgAABAAAAEAgAAAAIACAggAAA=</HashCode>
       <FileName>MoveableObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IAircraftPart" Collapsed="true">
-    <Position X="4.5" Y="6.5" Width="1.5" />
+    <Position X="4.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAACAIAAQABAAAAAAAAAAIAAAAAAACCAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ABCAircraft" Collapsed="true">
-    <Position X="4.5" Y="8" Width="1.5" />
+    <Position X="4.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAACAIAAQABAAAAQAAAAAIAAAAAAACCAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LightAircraft" Collapsed="true">
-    <Position X="5.75" Y="9.25" Width="1.5" />
+    <Position X="5.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FastAircraft" Collapsed="true">
-    <Position X="5.5" Y="10.5" Width="1.5" />
+    <Position X="5.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VeryFastAircraft" Collapsed="true">
-    <Position X="3.5" Y="10.5" Width="1.5" />
+    <Position X="3.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BrokenAircraft" Collapsed="true">
-    <Position X="3.25" Y="9.25" Width="1.5" />
+    <Position X="3.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IBarrierPart" Collapsed="true">
-    <Position X="13.5" Y="5.25" Width="1.5" />
+    <Position X="11.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAgAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ABCBarrier" Collapsed="true">
-    <Position X="13.5" Y="6.5" Width="1.5" />
+    <Position X="11.75" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAEEAgAAAAAAgEgAAAAAIAAAgAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAEAgAAAAAAgAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mountain" Collapsed="true">
-    <Position X="15.75" Y="8" Width="1.5" />
+    <Position X="13.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UpgradeTower" Collapsed="true">
-    <Position X="11.25" Y="8" Width="1.5" />
+    <Position X="9.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DowngradeTower" Collapsed="true">
-    <Position X="13.5" Y="8" Width="1.5" />
+    <Position X="11.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HitBox" Collapsed="true">
-    <Position X="9.75" Y="2" Width="1.5" />
+    <Position X="7.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAABRAAAAABAAAAAEACCAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAJRAAAAABAAAAAEACCAAAAAEAAAAA=</HashCode>
       <FileName>HitBox.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Position" Collapsed="true">
-    <Position X="9.75" Y="0.75" Width="1.5" />
+    <Position X="7.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAYgAAAAAAhAQAAAAAAAYAAAAAAAAgA=</HashCode>
       <FileName>Position.h</FileName>
@@ -120,7 +120,7 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="DIR" Collapsed="true">
-    <Position X="12.25" Y="0.75" Width="1.5" />
+    <Position X="9.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
       <FileName>MoveableObject.h</FileName>

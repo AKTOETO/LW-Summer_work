@@ -47,6 +47,11 @@ const int& HitBox::GetHeight() const
 	return m_height;
 }
 
+Position HitBox::GetShiftedPosition(int _percents_x, int _percents_y) const
+{
+	return Position(GetShiftedX(_percents_x), GetShiftedY(_percents_y));
+}
+
 // получение копии хитбокса
 HitBox HitBox::GetHitBox() const
 {

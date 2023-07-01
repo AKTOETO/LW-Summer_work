@@ -1,5 +1,5 @@
 #pragma once
-#include "pch.h"
+#include "UncontrollableObject.h"
 
 // интерфейс части препятствия
 class IBarrierPart
@@ -18,14 +18,9 @@ protected:
 // абстрактный базовый класс препятствия
 class ABCBarrier :
 	public IBarrierPart,
-	public HitBox
+	public ABCUncontrollableObject
 {
 protected:
-	COLORREF m_color;	// цвет препятствия
-	HDC m_hdc;			// контекст консоли
-
-	// Отрисовка препятствия
-	virtual void Draw() = 0;
 
 	// части препятствия
 	// камень
@@ -40,15 +35,6 @@ protected:
 public:
 	// конструктор
 	ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color);
-
-	// отрисовка препятствия
-	void ProcessDraw();
-
-	// прячем объект
-	void Hide();
-
-	// показываем объект
-	void Show();
 };
 
 // камень

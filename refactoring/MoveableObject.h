@@ -32,6 +32,9 @@ public:
     ABCMoveableObject(HDC _hdc, HitBox _box, COLORREF _color, float _speed);
     ~ABCMoveableObject();
 
+    // метод перемещения объекта на определенные координаты
+    void Reposition(Position _pos);
+
     // метод скрытия объекта
     void Hide();
 

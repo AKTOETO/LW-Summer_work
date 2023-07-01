@@ -11,7 +11,7 @@ void Missile::Draw()
 	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(0));
 }
 
-Missile::Missile(HDC _hdc, Position _pos, DIR _dir)
-	:ABCUncontrollableObject(_hdc, { _pos , 10, 5 }, RED, 20, _dir)
+Missile::Missile(HDC _hdc, Position _pos)
+	:ABCUncontrollableObject(_hdc, { _pos , 10, 5 }, RED, 20, DIR::RIGHT)
 {
 }

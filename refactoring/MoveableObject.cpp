@@ -6,10 +6,10 @@ ABCMoveableObject::ABCMoveableObject(
 )
 	:HitBox(_box), m_hdc(_hdc), m_color(_color),
 	m_speed(_speed), m_shift({0,0}), m_dir(DIR::DOWN)
-{};
+{}
 
 ABCMoveableObject::~ABCMoveableObject()
-{};
+{}
 
 // метод скрытия объекта
 void ABCMoveableObject::Hide()
@@ -19,7 +19,7 @@ void ABCMoveableObject::Hide()
 	SelectObject(m_hdc, Pen);
 	Draw();
 	DeleteObject(Pen);
-};
+}
 
 // метод отображения объекта
 void ABCMoveableObject::Show()
@@ -29,7 +29,7 @@ void ABCMoveableObject::Show()
 	SelectObject(m_hdc, Pen);
 	Draw();
 	DeleteObject(Pen);
-};
+}
 
 // Отрисовка передвигаемого объекта
 void ABCMoveableObject::ProcessDraw()
@@ -45,9 +45,17 @@ void ABCMoveableObject::ProcessDraw()
 
 	// показываем объект
 	Show();
-};
+}
+
+void ABCMoveableObject::Reposition(Position _pos)
+{
+	Hide();
+	Position::SetPos(_pos);
+	Show();
+}
+
 
 const DIR& ABCMoveableObject::GetDir() const
 {
 	return m_dir;
-};
+}

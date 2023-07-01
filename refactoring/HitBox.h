@@ -36,6 +36,10 @@ public:
 	// получить высоту хитбокса
 	const int& GetHeight() const;
 
+	// получить сдвинутую позицтю относительно
+	// левого верхнего края хитбокса
+	Position GetShiftedPosition(int _percents_x, int _percents_y) const;
+
 	// получение копии хитбокса
 	HitBox GetHitBox() const;
 };

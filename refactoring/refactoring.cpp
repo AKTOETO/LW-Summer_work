@@ -39,6 +39,8 @@ bool Collision(const HitBox& _air, const HitBox& _bar);
 /***********************************************************************/
 int main()
 {
+	srand(time(NULL));
+
 	//получим дескриптор консольного окна
 	HWND hwnd = GetConcolWindow();
 
@@ -64,9 +66,9 @@ int main()
 			// тут будет 5 элемента
 			ABCBarrier* bars[barrier_number] =
 			{
-				new Mountain(hdc,{700,100}),
-				new Mountain(hdc,{700,300}),
-				new Mountain(hdc,{700,500}),
+				new Mountain(hdc),
+				new Mountain(hdc),
+				new Mountain(hdc),
 				new UpgradeTower(hdc),
 				new DowngradeTower(hdc),
 			};
@@ -85,18 +87,10 @@ int main()
 			};
 
 			// есть ли пересечение самолета с текущим препятствием
-			bool is_collision[barrier_number];
-
-			// обнуляем весь массив
-			for (int i = 0; i < barrier_number; i++)
-				is_collision[i] = 0;
-
+			bool is_collision[barrier_number] = {};
+			
 			// было ли пересечение самолета с текущим препятствием
-			bool was_changed[barrier_number];
-
-			// обнуляем весь массив
-			for (int i = 0; i < barrier_number; i++)
-				was_changed[i] = 0;
+			bool was_changed[barrier_number] = {};
 
 			// указатель на текущий самолет
 			int cur_aircraft_index = 0;
@@ -114,16 +108,15 @@ int main()
 			// главный цикл программы
 			while (!KEY_DOWN(K_EXIT))
 			{
-				// Добавление ракет только если самолет движется и он не взорван
+				// Добавление ракет только если самолет не взорван
 				// и кнопка не была еще нажата
 				if (
 					!was_triggered &&
 					KEY_DOWN(K_SHOOT) &&
-					cur_air->GetDir() != DIR::STOP &&
 					cur_air != aircrafts[3]
 					)
 				{
-					missiles.push_back(Missile(hdc, cur_air->GetPos(), cur_air->GetDir()));
+					missiles.push_back({ hdc, cur_air->GetShiftedPosition(90,50) });
 					is_triggered = 1;
 					was_triggered = 1;
 				}
@@ -137,49 +130,54 @@ int main()
 					// отрисовываем и двигаем каждую ракету
 					it->ProcessDraw();
 
-					// если ракеты вышли за игровое поле (1920 * 1080)
+					// если ракеты вышли за игровое поле (1920 x 1080)
 					// удаляю их
 					if (
-						it->GetX() > 1920 || it->GetShiftedX(100) < 0 ||
-						it->GetY() > 1080 || it->GetShiftedY(100) < 0
+						it->GetX() > GF_WIDTH  || it->GetShiftedX(100) < 0 ||
+						it->GetY() > GF_HEIGHT || it->GetShiftedY(100) < 0
 						)
 					{
 						it->Hide();
 						it = missiles.erase(it);
+						if (it == missiles.end()) break;
 					}
-					if (it == missiles.end()) break;
 				}
 
 				// отрисовка всех препятствий
 				for (int i = 0; i < barrier_number; i++)
-					if (bars[i] != nullptr)bars[i]->ProcessDraw();
+					bars[i]->ProcessDraw();
 
-				// Отрисовка
+				// Отрисовка текущего самолета
 				cur_air->ProcessDraw();
 
 				// обработка столкновений
 				for (int j = 0; j < barrier_number; j++)
 				{
-					// обработка столкновения ракет со скалой
+					// обработка столкновения ракет с барьером
 					for (auto it = missiles.begin(); it != missiles.end(); it++)
 					{
-						// если препятствие существует и оно пересеклось с ракетой
-						if (bars[j] != nullptr && Collision(*it, *bars[j]))
+						// если препятствие пересеклось с ракетой
+						if (Collision(*it, *bars[j]))
 						{
-							// удаляем препятствие 
-							bars[j]->Hide();
-							delete bars[j];
-							bars[j] = nullptr;
+							// перемещаем в правую часть экрана
+							bars[j]->Reposition({ GF_WIDTH, GF_RAND_HIGHT });
 
 							// удаляем ракету
 							it->Hide();
 							it = missiles.erase(it);
+							if (it == missiles.end()) break;
 						}
-						if (it == missiles.end()) break;
+					}
+
+					// проверка на выход барьеров за игровую область
+					if(bars[j]->GetShiftedX(100) < 0)
+					{
+						// перемещаем в правую часть экрана
+						bars[j]->Reposition({ GF_WIDTH, GF_RAND_HIGHT });
 					}
 
 					// если самолет и препятствие пересеклось
-					if (bars[j] != nullptr && Collision(*cur_air, *bars[j]))
+					if (Collision(*cur_air, *bars[j]))
 					{
 						is_collision[j] = 1;
 					}
