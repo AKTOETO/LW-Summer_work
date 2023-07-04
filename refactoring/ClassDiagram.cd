@@ -3,7 +3,7 @@
   <Class Name="ABCMoveableObject" Collapsed="true">
     <Position X="7.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAACAAQAgAAEAAgAABAAAAEAgAAAAIACAggAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAQAgAAEAAgAABACAAEAgAAAAIACAggAAA=</HashCode>
       <FileName>MoveableObject.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -50,35 +50,35 @@
     </TypeIdentifier>
   </Class>
   <Class Name="IBarrierPart" Collapsed="true">
-    <Position X="11.75" Y="5.75" Width="1.5" />
+    <Position X="12.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAgAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ABCBarrier" Collapsed="true">
-    <Position X="11.75" Y="7" Width="1.5" />
+    <Position X="12.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAgAAAAAAgAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mountain" Collapsed="true">
-    <Position X="13.75" Y="8.5" Width="1.5" />
+    <Position X="14.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UpgradeTower" Collapsed="true">
-    <Position X="9.75" Y="8.5" Width="1.5" />
+    <Position X="10.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DowngradeTower" Collapsed="true">
-    <Position X="11.75" Y="8.5" Width="1.5" />
+    <Position X="12.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
@@ -113,7 +113,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Missile" Collapsed="true">
-    <Position X="8.75" Y="7.25" Width="1.5" />
+    <Position X="8.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Missle.h</FileName>

@@ -1,8 +1,8 @@
-#include "pch.h"
+п»ї#include "pch.h"
 #include "Aircrafts.h"
 
 //===================================//
-// А Б С Т Р А К Т Н Ы Й   К Л А С С //
+// Рђ Р‘ РЎ Рў Р  Рђ Рљ Рў Рќ Р« Р™   Рљ Р› Рђ РЎ РЎ //
 //===================================//
 
 void ABCAircraft::Wing()
@@ -18,7 +18,7 @@ void ABCAircraft::Fuselage()
 	MoveToEx(m_hdc, GetShiftedX(10), GetY(), NULL);
 	LineTo(m_hdc, GetShiftedX(20), GetY());
 	LineTo(m_hdc, GetShiftedX(25), GetShiftedY(35));
-	LineTo(m_hdc, GetShiftedX(90), GetShiftedY(35));	// верхняя линия корпуса
+	LineTo(m_hdc, GetShiftedX(90), GetShiftedY(35));	// РІРµСЂС…РЅСЏСЏ Р»РёРЅРёСЏ РєРѕСЂРїСѓСЃР°
 	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(50));
 	LineTo(m_hdc, GetShiftedX(90), GetShiftedY(75));
 	LineTo(m_hdc, GetShiftedX(15), GetShiftedY(75));
@@ -53,17 +53,17 @@ void ABCAircraft::UnderWingEngine()
 void ABCAircraft::BrokenFuselage()
 {
 
-	// фюзеляж
+	// С„СЋР·РµР»СЏР¶
 	MoveToEx(m_hdc, GetShiftedX(10), GetY(), NULL);
 	LineTo(m_hdc, GetShiftedX(20), GetY());
 	LineTo(m_hdc, GetShiftedX(25), GetShiftedY(35));
 	LineTo(m_hdc, GetShiftedX(40), GetShiftedY(35));
 
-	// разлом
+	// СЂР°Р·Р»РѕРј
 	LineTo(m_hdc, GetShiftedX(45), GetShiftedY(50));
 	LineTo(m_hdc, GetShiftedX(55), GetShiftedY(40));
 
-	// фюзеляж
+	// С„СЋР·РµР»СЏР¶
 	LineTo(m_hdc, GetShiftedX(90), GetShiftedY(70));
 	LineTo(m_hdc, GetShiftedX(95), GetShiftedY(95));
 	LineTo(m_hdc, GetShiftedX(80), GetShiftedY(100));
@@ -89,63 +89,14 @@ void ABCAircraft::BrokenWindow()
 }
 
 ABCAircraft::ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed)
-//:HitBox(_box), m_hdc(_hdc), m_color(_color), m_speed(_speed)
 	:ABCControllableObject(_hdc, _box, _color, _speed)
 {};
 
-//void ABCAircraft::Hide()
-//{
-//	// зарисовываю фигуру белым цветом
-//	HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
-//	SelectObject(m_hdc, Pen);
-//	Draw();
-//	DeleteObject(Pen);
-//};
-//
-//void ABCAircraft::Show()
-//{
-//	// зарисовываю фигуру красным цветом
-//	HPEN Pen = CreatePen(PS_SOLID, 3, m_color);
-//	SelectObject(m_hdc, Pen);
-//	Draw();
-//	DeleteObject(Pen);
-//};
-//
-//void ABCAircraft::ProcessDraw()
-//{
-//	// прячем объект
-//	Hide();
-//
-//	Position shift(0, 0);
-//	// обработка нажатых клавиш
-//	// если нажата клавиша вперед, двигаемся вверх
-//	if (KEY_DOWN(K_FORWARD))
-//		shift = { 0, -int(m_speed) };
-//
-//	// если нажата клавиша назад, двигаемся вниз
-//	else if (KEY_DOWN(K_BACKWARD))
-//		shift = { 0, int(m_speed) };
-//
-//	// если нажата клавиша назад, двигаемся вниз
-//	else if (KEY_DOWN(K_LEFTWARD))
-//		shift = { -int(m_speed), 0 };
-//
-//	// если нажата клавиша назад, двигаемся вниз
-//	else if (KEY_DOWN(K_RIGHTWARD))
-//		shift = { int(m_speed), 0 };
-//
-//	// вызов метода сдвига объекта
-//	ShiftPos(shift);
-//
-//	// показываем объект
-//	Show();
-//}
-
 //=================//
-// С А М О Л Е Т Ы //
+// РЎ Рђ Рњ Рћ Р› Р• Рў Р« //
 //=================//
 
-// Легкий самолет
+// Р›РµРіРєРёР№ СЃР°РјРѕР»РµС‚
 LightAircraft::LightAircraft(HDC _hdc)
 	: ABCAircraft(_hdc, { 50,50,100,50 }, RED, 5)
 {}
@@ -157,7 +108,7 @@ void LightAircraft::Draw()
 	Wing();
 }
 
-// Быстрый самолет
+// Р‘С‹СЃС‚СЂС‹Р№ СЃР°РјРѕР»РµС‚
 FastAircraft::FastAircraft(HDC _hdc)
 	:ABCAircraft(_hdc, { 50,50,100,50 }, BLACK, 10)
 {}
@@ -170,7 +121,7 @@ void FastAircraft::Draw()
 	UnderWingEngine();
 }
 
-// Очень быстрый самолет
+// РћС‡РµРЅСЊ Р±С‹СЃС‚СЂС‹Р№ СЃР°РјРѕР»РµС‚
 VeryFastAircraft::VeryFastAircraft(HDC _hdc)
 	:ABCAircraft(_hdc, { 50,50,100,50 }, GREEN, 15)
 {}
@@ -184,7 +135,7 @@ void VeryFastAircraft::Draw()
 	RearEngine();
 }
 
-// Сломанный самолет
+// РЎР»РѕРјР°РЅРЅС‹Р№ СЃР°РјРѕР»РµС‚
 BrokenAircraft::BrokenAircraft(HDC _hdc)
 	:ABCAircraft(_hdc, { 50,50,100,50 }, BLACK, 0)
 {}

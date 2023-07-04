@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "UncontrollableObject.h"
 
 class Missile :
@@ -6,12 +6,12 @@ class Missile :
 {
 protected:
 
-    // Отрисовка ракеты
+    // РћС‚СЂРёСЃРѕРІРєР° СЂР°РєРµС‚С‹
     virtual void Draw() override;
 
 public:
 
-    // конструктор
+    // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     Missile(HDC _hdc, Position _box);
 
 };

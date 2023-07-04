@@ -1,20 +1,20 @@
-#pragma once
+п»ї#pragma once
 
-// нажата ли клавиша
+// РЅР°Р¶Р°С‚Р° Р»Рё РєР»Р°РІРёС€Р°
 #define KEY_DOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
 
 //===================//
-// ИГРОВЫЕ НАСТРОЙКИ //
+// РР“Р РћР’Р«Р• РќРђРЎРўР РћР™РљР //
 //===================//
 
-#define GF_WIDTH  1920						// ширина игрового поля
-#define GF_HEIGHT 1080						// высота игрового поля
-#define GF_RAND_HIGHT rand() % GF_HEIGHT	// случайная координата y
-#define GF_RAND_WIDTH rand() % GF_WIDTH		// случайная координата x
-#define BARRIER_SPEED 5						// скорость барьеров
+#define GF_WIDTH  1920						// С€РёСЂРёРЅР° РёРіСЂРѕРІРѕРіРѕ РїРѕР»СЏ
+#define GF_HEIGHT 1080						// РІС‹СЃРѕС‚Р° РёРіСЂРѕРІРѕРіРѕ РїРѕР»СЏ
+#define GF_RAND_HIGHT rand() % GF_HEIGHT	// СЃР»СѓС‡Р°Р№РЅР°СЏ РєРѕРѕСЂРґРёРЅР°С‚Р° y
+#define GF_RAND_WIDTH rand() % GF_WIDTH		// СЃР»СѓС‡Р°Р№РЅР°СЏ РєРѕРѕСЂРґРёРЅР°С‚Р° x
+#define BARRIER_SPEED 5						// СЃРєРѕСЂРѕСЃС‚СЊ Р±Р°СЂСЊРµСЂРѕРІ
 
 //===============//
-// К Л А В И Ш И //
+// Рљ Р› Рђ Р’ Р РЁ Р //
 //===============//
 
 #define K_EXIT      27 // Esc
@@ -25,7 +25,7 @@
 #define K_SHOOT		32 // Space
 
 //===========//
-// Ц В Е Т А //
+// Р¦ Р’ Р• Рў Рђ //
 //===========//
 
 #define RED        RGB(255, 0, 0)
