@@ -100,7 +100,7 @@ int main()
 			std::list<Missile> missiles;
 
 			// была ли нажата кнопка стрельбы
-			bool was_triggered = false;
+			bool was_shoot = false;
 
 			// главный цикл программы
 			while (!KEY_DOWN(K_EXIT))
@@ -108,17 +108,17 @@ int main()
 				// Добавление ракет только если самолет не взорван
 				// и кнопка не была еще нажата
 				if (
-					!was_triggered &&
+					!was_shoot &&
 					KEY_DOWN(K_SHOOT) &&
 					cur_air != aircrafts[3]
 					)
 				{
 					missiles.push_back({ hdc, cur_air->GetShiftedPosition(90,50) });
-					was_triggered = 1;
+					was_shoot = 1;
 				}
 				// если же кнопка была ранее нажата, но сейчас ее отпустили,
 				// то говорим, что она не нажата сейчас
-				else if (!KEY_DOWN(K_SHOOT)) was_triggered = 0;
+				else if (!KEY_DOWN(K_SHOOT)) was_shoot = 0;
 
 				// отрисовка ракет
 				for (auto it = missiles.begin(); it != missiles.end(); it++)
