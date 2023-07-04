@@ -1,26 +1,26 @@
-#include "pch.h"
+п»ї#include "pch.h"
 #include "UncontrollableObject.h"
 
 void ABCUncontrollableObject::CalcShiftPos()
 {
 	switch (m_dir)
 	{
-		// двигаемся влево
+		// РґРІРёРіР°РµРјСЃСЏ РІР»РµРІРѕ
 	case DIR::LEFT:
 		m_shift = { -int(m_speed), 0 };
 		break;
 
-		// двигаемся вверх
+		// РґРІРёРіР°РµРјСЃСЏ РІРІРµСЂС…
 	case DIR::UP:
 		m_shift = { 0, -int(m_speed) };
 		break;
 
-		// двигаемся вправо
+		// РґРІРёРіР°РµРјСЃСЏ РІРїСЂР°РІРѕ
 	case DIR::RIGHT:
 		m_shift = { int(m_speed), 0 };
 		break;
 
-		// двигаемся вниз
+		// РґРІРёРіР°РµРјСЃСЏ РІРЅРёР·
 	case DIR::DOWN:
 		m_shift = { 0, int(m_speed) };
 		break;
@@ -34,7 +34,7 @@ void ABCUncontrollableObject::CalcShiftPos()
 ABCUncontrollableObject::ABCUncontrollableObject(
 	HDC _hdc, HitBox _box, COLORREF _color, float _speed, DIR _dir
 )
-	:ABCMoveableObject(_hdc, _box, _color, _speed), m_dir(_dir)
+	:ABCMoveableObject(_hdc, _box, _color, _speed, _dir)
 {
 }
 

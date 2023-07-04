@@ -1,49 +1,49 @@
-#include "pch.h"
+п»ї#include "pch.h"
 #include "MoveableObject.h"
 
 ABCMoveableObject::ABCMoveableObject(
-	HDC _hdc, HitBox _box, COLORREF _color, float _speed
+	HDC _hdc, HitBox _box, COLORREF _color, float _speed, DIR _dir
 )
 	:HitBox(_box), m_hdc(_hdc), m_color(_color),
-	m_speed(_speed), m_shift({0,0}), m_dir(DIR::DOWN)
+	m_speed(_speed), m_shift({0,0}), m_dir(_dir)
 {}
 
 ABCMoveableObject::~ABCMoveableObject()
 {}
 
-// метод скрытия объекта
+// РјРµС‚РѕРґ СЃРєСЂС‹С‚РёСЏ РѕР±СЉРµРєС‚Р°
 void ABCMoveableObject::Hide()
 {
-	// зарисовываю фигуру белым цветом
+	// Р·Р°СЂРёСЃРѕРІС‹РІР°СЋ С„РёРіСѓСЂСѓ Р±РµР»С‹Рј С†РІРµС‚РѕРј
 	HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
 	SelectObject(m_hdc, Pen);
 	Draw();
 	DeleteObject(Pen);
 }
 
-// метод отображения объекта
+// РјРµС‚РѕРґ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
 void ABCMoveableObject::Show()
 {
-	// зарисовываю фигуру красным цветом
+	// Р·Р°СЂРёСЃРѕРІС‹РІР°СЋ С„РёРіСѓСЂСѓ РєСЂР°СЃРЅС‹Рј С†РІРµС‚РѕРј
 	HPEN Pen = CreatePen(PS_SOLID, 3, m_color);
 	SelectObject(m_hdc, Pen);
 	Draw();
 	DeleteObject(Pen);
 }
 
-// Отрисовка передвигаемого объекта
+// РћС‚СЂРёСЃРѕРІРєР° РїРµСЂРµРґРІРёРіР°РµРјРѕРіРѕ РѕР±СЉРµРєС‚Р°
 void ABCMoveableObject::ProcessDraw()
 {
-	// прячем объект
+	// РїСЂСЏС‡РµРј РѕР±СЉРµРєС‚
 	Hide();
 
-	// расчет сдвига
+	// СЂР°СЃС‡РµС‚ СЃРґРІРёРіР°
 	CalcShiftPos();
 
-	// вызов метода сдвига объекта
+	// РІС‹Р·РѕРІ РјРµС‚РѕРґР° СЃРґРІРёРіР° РѕР±СЉРµРєС‚Р°
 	ShiftPos(m_shift);
 
-	// показываем объект
+	// РїРѕРєР°Р·С‹РІР°РµРј РѕР±СЉРµРєС‚
 	Show();
 }
 

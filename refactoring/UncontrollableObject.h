@@ -1,17 +1,12 @@
-#pragma once
+п»ї#pragma once
 #include "MoveableObject.h"
-
-
 
 class ABCUncontrollableObject :
     public ABCMoveableObject
 {
 protected:
 
-    // направление движения
-    DIR m_dir;
-
-    // создание сдвига позиции
+    // СЃРѕР·РґР°РЅРёРµ СЃРґРІРёРіР° РїРѕР·РёС†РёРё
     virtual void CalcShiftPos() override;
 
 public:
