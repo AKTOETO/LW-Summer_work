@@ -90,7 +90,7 @@ int main()
 			bool is_collision[barrier_number] = {};
 			
 			// было ли пересечение самолета с текущим препятствием
-			bool was_changed[barrier_number] = {};
+			bool was_collision[barrier_number] = {};
 
 			// указатель на текущий самолет
 			int cur_aircraft_index = 0;
@@ -101,9 +101,6 @@ int main()
 
 			// была ли нажата кнопка стрельбы
 			bool was_triggered = false;
-
-			// нажата ли кнопка стрельбы сейчас
-			bool is_triggered = false;
 
 			// главный цикл программы
 			while (!KEY_DOWN(K_EXIT))
@@ -117,12 +114,11 @@ int main()
 					)
 				{
 					missiles.push_back({ hdc, cur_air->GetShiftedPosition(90,50) });
-					is_triggered = 1;
 					was_triggered = 1;
 				}
 				// если же кнопка была ранее нажата, но сейчас ее отпустили,
 				// то говорим, что она не нажата сейчас
-				else if (!KEY_DOWN(K_SHOOT)) is_triggered = 0, was_triggered = 0;
+				else if (!KEY_DOWN(K_SHOOT)) was_triggered = 0;
 
 				// отрисовка ракет
 				for (auto it = missiles.begin(); it != missiles.end(); it++)
@@ -184,32 +180,29 @@ int main()
 					else
 					{
 						is_collision[j] = 0;
-						was_changed[j] = 0;
+						was_collision[j] = 0;
 					}
 
 					// если сейчас есть пересечение, а шаг назад его не было
-					if (is_collision[j] && !was_changed[j])
+					if (is_collision[j] && !was_collision[j])
 					{
 						// новый индекс самолета
-						int new_aircraft = collis[cur_aircraft_index][j];
+						cur_aircraft_index = collis[cur_aircraft_index][j];
 
 						// переношу конечный самолет в текущие координаты
-						aircrafts[new_aircraft]->SetX(cur_air->GetX());
-						aircrafts[new_aircraft]->SetY(cur_air->GetY());
+						aircrafts[cur_aircraft_index]->SetX(cur_air->GetX());
+						aircrafts[cur_aircraft_index]->SetY(cur_air->GetY());
 
 						// выключаю видимость текущего самолета
 						// и включаю видимость конечного
 						cur_air->Hide();
-						aircrafts[new_aircraft]->Show();
+						aircrafts[cur_aircraft_index]->Show();
 
-						// присваиваю текущий самолет текущему указателю на самолет
-						cur_air = aircrafts[new_aircraft];
-
-						// меняю текущий номер самолета
-						cur_aircraft_index = new_aircraft;
+						// присваиваю новый самолет текущему указателю на самолет
+						cur_air = aircrafts[cur_aircraft_index];
 
 						// пересечение случилось
-						was_changed[j] = 1;
+						was_collision[j] = 1;
 					}
 				}
 				// ждем 10 миллисекунд

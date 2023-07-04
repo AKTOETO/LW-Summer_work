@@ -8,7 +8,7 @@
 //===================//
 
 #define GF_WIDTH  1920						// ширина игрового поля
-#define GF_HEIGHT 1080						// высота игрового поля
+#define GF_HEIGHT 1000						// высота игрового поля
 #define GF_RAND_HIGHT rand() % GF_HEIGHT	// случайная координата y
 #define GF_RAND_WIDTH rand() % GF_WIDTH		// случайная координата x
 #define BARRIER_SPEED 5						// скорость барьеров
