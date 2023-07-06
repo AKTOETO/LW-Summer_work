@@ -1,126 +1,154 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ABCMoveableObject" Collapsed="true">
-    <Position X="7.75" Y="4" Width="1.5" />
+    <Position X="5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAQAgAAEAAgAABACAAEAgAAAAIACAggAAA=</HashCode>
       <FileName>MoveableObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IAircraftPart" Collapsed="true">
-    <Position X="4.5" Y="5.5" Width="1.5" />
+    <Position X="1.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAACAIAAQABAAAAAAAAAAIAAAAAAACCAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ABCAircraft" Collapsed="true">
-    <Position X="4.5" Y="7" Width="1.5" />
+    <Position X="1.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAACAIAAQABAAAAQAAAAAIAAAAAAACCAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LightAircraft" Collapsed="true">
-    <Position X="5.75" Y="8.25" Width="1.5" />
+    <Position X="3" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FastAircraft" Collapsed="true">
-    <Position X="5.5" Y="9.5" Width="1.5" />
+    <Position X="2.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VeryFastAircraft" Collapsed="true">
-    <Position X="3.5" Y="9.5" Width="1.5" />
+    <Position X="0.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BrokenAircraft" Collapsed="true">
-    <Position X="3.25" Y="8.25" Width="1.5" />
+    <Position X="0.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Aircrafts.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IBarrierPart" Collapsed="true">
-    <Position X="12.75" Y="5.75" Width="1.5" />
+    <Position X="10" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAgAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ABCBarrier" Collapsed="true">
-    <Position X="12.75" Y="7" Width="1.5" />
+    <Position X="10" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAgAAAAAAgAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mountain" Collapsed="true">
-    <Position X="14.75" Y="8.5" Width="1.5" />
+    <Position X="12" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UpgradeTower" Collapsed="true">
-    <Position X="10.75" Y="8.5" Width="1.5" />
+    <Position X="8" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DowngradeTower" Collapsed="true">
-    <Position X="12.75" Y="8.5" Width="1.5" />
+    <Position X="10" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Barriers.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HitBox" Collapsed="true">
-    <Position X="7.75" Y="2.75" Width="1.5" />
+    <Position X="5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAJRAAAAABAAAAAEACCAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAJRAAAAABAAAAAEACCAAAAAEAAAEA=</HashCode>
       <FileName>HitBox.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Position" Collapsed="true">
-    <Position X="7.75" Y="1.75" Width="1.5" />
+    <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAYgAAAAAAhAQAAAAAAAYAAAAAAAAgA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAYgAAAAAAhAQAABAAAAYAAAAAAAAgA=</HashCode>
       <FileName>Position.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ABCControllableObject" Collapsed="true">
-    <Position X="6.75" Y="5.5" Width="1.5" />
+    <Position X="4" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABABAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ControllableObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ABCUncontrollableObject" Collapsed="true">
-    <Position X="8.75" Y="5.5" Width="1.5" />
+    <Position X="6" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAgAAAAABAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAABAAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>UncontrollableObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Missile" Collapsed="true">
-    <Position X="8.75" Y="8.5" Width="1.5" />
+    <Position X="6" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAgAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Missle.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ABCBaseManager" Collapsed="true">
+    <Position X="14" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgAAAAAAAAAAgAAAAAAAAAAIAAAAAAgIAIAAAAAAAA=</HashCode>
+      <FileName>BaseManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BarrierManager" Collapsed="true">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAgAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>BarrierManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MissileManager" Collapsed="true">
+    <Position X="14" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAAAAAAAAAAgAAAAAgBAAAAAAAAAAAAAAAEAQAAEA=</HashCode>
+      <FileName>MissileManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AircraftManager" Collapsed="true">
+    <Position X="15.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AircraftManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="DIR" Collapsed="true">
-    <Position X="9.75" Y="1.75" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
       <FileName>MoveableObject.h</FileName>

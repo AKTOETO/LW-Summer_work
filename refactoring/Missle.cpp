@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Missle.h"
 
 void Missile::Draw()
@@ -14,4 +14,9 @@ void Missile::Draw()
 Missile::Missile(HDC _hdc, Position _pos)
 	:ABCUncontrollableObject(_hdc, { _pos , 10, 5 }, RED, 20, DIR::RIGHT)
 {
+}
+
+Missile::~Missile()
+{
+	Hide();
 }

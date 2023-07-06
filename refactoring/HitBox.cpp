@@ -1,47 +1,47 @@
-#include "pch.h"
+п»ї#include "pch.h"
 #include "HitBox.h"
 
-// конструктор с параметрами
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 HitBox::HitBox(int _x, int _y, int _width, int _height)
 	: Position(_x, _y), m_width(_width), m_height(_height)
 {};
 
-// конструктор
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 HitBox::HitBox(Position _pos, int _width, int _height)
 	: Position(_pos), m_width(_width), m_height(_height)
 {};
 
-// получить смещение по оси X в пикселях исходя из смещения в процентах
+// РїРѕР»СѓС‡РёС‚СЊ СЃРјРµС‰РµРЅРёРµ РїРѕ РѕСЃРё X РІ РїРёРєСЃРµР»СЏС… РёСЃС…РѕРґСЏ РёР· СЃРјРµС‰РµРЅРёСЏ РІ РїСЂРѕС†РµРЅС‚Р°С…
 int HitBox::GetShiftX(int _percents) const
 {
 	return (m_width * _percents / 100);
 }
 
-// получить смещение по оси Y в пикселях исходя из смещения в процентах
+// РїРѕР»СѓС‡РёС‚СЊ СЃРјРµС‰РµРЅРёРµ РїРѕ РѕСЃРё Y РІ РїРёРєСЃРµР»СЏС… РёСЃС…РѕРґСЏ РёР· СЃРјРµС‰РµРЅРёСЏ РІ РїСЂРѕС†РµРЅС‚Р°С…
 int HitBox::GetShiftY(int _percents) const
 {
 	return (m_height * _percents / 100);
 }
 
-// получить уже смещенную координату X исходя из процентов смещения
+// РїРѕР»СѓС‡РёС‚СЊ СѓР¶Рµ СЃРјРµС‰РµРЅРЅСѓСЋ РєРѕРѕСЂРґРёРЅР°С‚Сѓ X РёСЃС…РѕРґСЏ РёР· РїСЂРѕС†РµРЅС‚РѕРІ СЃРјРµС‰РµРЅРёСЏ
 int HitBox::GetShiftedX(int _percents) const
 {
 	return m_x + GetShiftX(_percents);
 }
 
-// получить уже смещенную координату Y исходя из процентов смещения
+// РїРѕР»СѓС‡РёС‚СЊ СѓР¶Рµ СЃРјРµС‰РµРЅРЅСѓСЋ РєРѕРѕСЂРґРёРЅР°С‚Сѓ Y РёСЃС…РѕРґСЏ РёР· РїСЂРѕС†РµРЅС‚РѕРІ СЃРјРµС‰РµРЅРёСЏ
 int HitBox::GetShiftedY(int _percents) const
 {
 	return m_y + GetShiftY(_percents);
 }
 
-// получить ширину хитбокса
+// РїРѕР»СѓС‡РёС‚СЊ С€РёСЂРёРЅСѓ С…РёС‚Р±РѕРєСЃР°
 const int& HitBox::GetWidth() const
 {
 	return m_width;
 }
 
-// получить высоту хитбокса
+// РїРѕР»СѓС‡РёС‚СЊ РІС‹СЃРѕС‚Сѓ С…РёС‚Р±РѕРєСЃР°
 const int& HitBox::GetHeight() const
 {
 	return m_height;
@@ -52,8 +52,8 @@ Position HitBox::GetShiftedPosition(int _percents_x, int _percents_y) const
 	return Position(GetShiftedX(_percents_x), GetShiftedY(_percents_y));
 }
 
-// получение копии хитбокса
-HitBox HitBox::GetHitBox() const
+// РїРѕР»СѓС‡РµРЅРёРµ С…РёС‚Р±РѕРєСЃР°
+const HitBox& HitBox::GetHitBox() const
 {
 	return *this;
 }

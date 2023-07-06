@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "MoveableObject.h"
 
 class ABCControllableObject :
@@ -6,11 +6,11 @@ class ABCControllableObject :
 {
 protected:
 
-    // создание сдвига позиции
+    // СЃРѕР·РґР°РЅРёРµ СЃРґРІРёРіР° РїРѕР·РёС†РёРё
     virtual void CalcShiftPos() override;
 
 public:
     ABCControllableObject(HDC _hdc, HitBox _box, COLORREF _color, float _speed);
-    ~ABCControllableObject();
+	virtual ~ABCControllableObject();
 };
 

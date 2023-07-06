@@ -88,7 +88,7 @@ int main()
 
 			// есть ли пересечение самолета с текущим препятствием
 			bool is_collision[barrier_number] = {};
-			
+
 			// было ли пересечение самолета с текущим препятствием
 			bool was_collision[barrier_number] = {};
 
@@ -113,7 +113,7 @@ int main()
 					cur_air != aircrafts[3]
 					)
 				{
-					missiles.push_back({ hdc, cur_air->GetShiftedPosition(90,50) });
+					missiles.emplace_back(hdc, cur_air->GetShiftedPosition(90, 50));
 					was_shoot = 1;
 				}
 				// если же кнопка была ранее нажата, но сейчас ее отпустили,
@@ -129,7 +129,7 @@ int main()
 					// если ракеты вышли за игровое поле (1920 x 1080)
 					// удаляю их
 					if (
-						it->GetX() > GF_WIDTH  || it->GetShiftedX(100) < 0 ||
+						it->GetX() > GF_WIDTH || it->GetShiftedX(100) < 0 ||
 						it->GetY() > GF_HEIGHT || it->GetShiftedY(100) < 0
 						)
 					{
@@ -166,7 +166,7 @@ int main()
 					}
 
 					// проверка на выход барьеров за игровую область
-					if(bars[j]->GetShiftedX(100) < 0)
+					if (bars[j]->GetShiftedX(100) < 0)
 					{
 						// перемещаем в правую часть экрана
 						bars[j]->Reposition({ GF_WIDTH, GF_RAND_HIGHT });

@@ -13,6 +13,6 @@ public:
 
     // конструктор
     Missile(HDC _hdc, Position _box);
-
+	~Missile();
 };
 
