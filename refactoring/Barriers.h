@@ -1,84 +1,84 @@
-#pragma once
+п»ї#pragma once
 #include "UncontrollableObject.h"
 
-// интерфейс части препятствия
+// РёРЅС‚РµСЂС„РµР№СЃ С‡Р°СЃС‚Рё РїСЂРµРїСЏС‚СЃС‚РІРёСЏ
 class IBarrierPart
 {
 protected:
-	// башня улучшений
+	// Р±Р°С€РЅСЏ СѓР»СѓС‡С€РµРЅРёР№
 	virtual void Upgrade() = 0;
 
-	// башня понижения самолета
+	// Р±Р°С€РЅСЏ РїРѕРЅРёР¶РµРЅРёСЏ СЃР°РјРѕР»РµС‚Р°
 	virtual void Downgrade() = 0;
 
-	// камень
+	// РєР°РјРµРЅСЊ
 	virtual void Rock() = 0;
 };
 
-// абстрактный базовый класс препятствия
+// Р°Р±СЃС‚СЂР°РєС‚РЅС‹Р№ Р±Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ РїСЂРµРїСЏС‚СЃС‚РІРёСЏ
 class ABCBarrier :
 	public IBarrierPart,
 	public ABCUncontrollableObject
 {
 protected:
 
-	// части препятствия
-	// камень
+	// С‡Р°СЃС‚Рё РїСЂРµРїСЏС‚СЃС‚РІРёСЏ
+	// РєР°РјРµРЅСЊ
 	virtual void Rock() override;
 
-	// башня улучшений
+	// Р±Р°С€РЅСЏ СѓР»СѓС‡С€РµРЅРёР№
 	virtual void Upgrade() override;
 
-	// башня понижения самолета
+	// Р±Р°С€РЅСЏ РїРѕРЅРёР¶РµРЅРёСЏ СЃР°РјРѕР»РµС‚Р°
 	virtual void Downgrade() override;
 
 public:
-	// конструктор
-	ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color, short _id);
 };
 
-// камень
+// РєР°РјРµРЅСЊ
 class Mountain :
 	public ABCBarrier
 {
 public:
 
-	// конструктор
-	Mountain(HDC _hdc);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	Mountain(HDC _hdc, short _id);
 
-	// конструктор с заданием позиции
-	Mountain(HDC _hdc, Position _pos);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ Р·Р°РґР°РЅРёРµРј РїРѕР·РёС†РёРё
+	Mountain(HDC _hdc, Position _pos, short _id);
 
 protected:
 
-	// отрисовка препятствия
+	// РѕС‚СЂРёСЃРѕРІРєР° РїСЂРµРїСЏС‚СЃС‚РІРёСЏ
 	virtual void Draw() override;
 };
 
-// Башня улучшения
+// Р‘Р°С€РЅСЏ СѓР»СѓС‡С€РµРЅРёСЏ
 class UpgradeTower :
 	public ABCBarrier
 {
 public:
-	// конструктор
-	UpgradeTower(HDC _hdc);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	UpgradeTower(HDC _hdc, short _id);
 
 protected:
 
-	// отрисовка препятствия
+	// РѕС‚СЂРёСЃРѕРІРєР° РїСЂРµРїСЏС‚СЃС‚РІРёСЏ
 	virtual void Draw() override;
 };
 
-// башня ухудшения
+// Р±Р°С€РЅСЏ СѓС…СѓРґС€РµРЅРёСЏ
 class DowngradeTower :
 	public ABCBarrier
 {
 public:
-	// конструктор
-	DowngradeTower(HDC _hdc);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	DowngradeTower(HDC _hdc, short _id);
 
 protected:
 
-	// отрисовка препятствия
+	// РѕС‚СЂРёСЃРѕРІРєР° РїСЂРµРїСЏС‚СЃС‚РІРёСЏ
 	virtual void Draw() override;
 };

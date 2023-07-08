@@ -32,9 +32,9 @@ void ABCUncontrollableObject::CalcShiftPos()
 }
 
 ABCUncontrollableObject::ABCUncontrollableObject(
-	HDC _hdc, HitBox _box, COLORREF _color, float _speed, DIR _dir
+	HDC _hdc, HitBox _box, COLORREF _color, float _speed, DIR _dir, short _id
 )
-	:ABCMoveableObject(_hdc, _box, _color, _speed, _dir)
+	:ABCMoveableObject(_hdc, _box, _color, _speed,_id, _dir)
 {
 }
 

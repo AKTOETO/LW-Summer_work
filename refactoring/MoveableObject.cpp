@@ -2,10 +2,10 @@
 #include "MoveableObject.h"
 
 ABCMoveableObject::ABCMoveableObject(
-	HDC _hdc, HitBox _box, COLORREF _color, float _speed, DIR _dir
+	HDC _hdc, HitBox _box, COLORREF _color, float _speed, short _id, DIR _dir
 )
 	:HitBox(_box), m_hdc(_hdc), m_color(_color),
-	m_speed(_speed), m_shift({0,0}), m_dir(_dir)
+	m_speed(_speed), m_shift({0,0}), m_dir(_dir),m_id(_id)
 {}
 
 ABCMoveableObject::~ABCMoveableObject()
@@ -58,4 +58,9 @@ void ABCMoveableObject::Reposition(Position _pos)
 const DIR& ABCMoveableObject::GetDir() const
 {
 	return m_dir;
+}
+
+const short& ABCMoveableObject::GetId() const
+{
+	return m_id;
 }

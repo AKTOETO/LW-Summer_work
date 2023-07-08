@@ -3,7 +3,7 @@
   <Class Name="ABCMoveableObject" Collapsed="true">
     <Position X="5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAQAgAAEAAgAABACAAEAgAAAAIACAggAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAQAgAAEAAgAABACAAEAgQAAAIACAogAAA=</HashCode>
       <FileName>MoveableObject.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -122,12 +122,20 @@
   <Class Name="ABCBaseManager" Collapsed="true">
     <Position X="14" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQgAAAAAAAAAAgAAAAAAAAAAIAAAAAAgIAIAAAAAAAA=</HashCode>
+      <HashCode>AQgAAAAAAAAAAgAAAAAAAAAAIAAAAAAgAAIAAAAAAAA=</HashCode>
       <FileName>BaseManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BarrierManager" Collapsed="true">
     <Position X="12.25" Y="3.25" Width="1.5" />
+    <InheritanceLine Type="ABCBaseManager" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="2.562" />
+        <Point X="14.75" Y="2.99" />
+        <Point X="12.938" Y="2.99" />
+        <Point X="12.938" Y="3.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAgAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>BarrierManager.h</FileName>
@@ -136,17 +144,39 @@
   <Class Name="MissileManager" Collapsed="true">
     <Position X="14" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAgAAAAAAAAAAgAAAAAgBAAAAAAAAAAAAAAAEAQAAEA=</HashCode>
+      <HashCode>CAgAAAAAAAAAAgAAAAAgBAAAAAAAAAAAAAAAEAQAAGA=</HashCode>
       <FileName>MissileManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AircraftManager" Collapsed="true">
     <Position X="15.75" Y="3.25" Width="1.5" />
+    <InheritanceLine Type="ABCBaseManager" ManuallyRouted="true">
+      <Path>
+        <Point X="14.75" Y="2.562" />
+        <Point X="14.75" Y="2.99" />
+        <Point X="16.5" Y="2.99" />
+        <Point X="16.5" Y="3.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAgAAAAAAAAAEgAAAAEAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
       <FileName>AircraftManager.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="CollisionController" Collapsed="true">
+    <Position X="14" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAQAAAAAAAgAIAAAAAAGEAAAAAAAgAAIAAAAAAAA=</HashCode>
+      <FileName>CollisionController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="CollisionsLists" Collapsed="true">
+    <Position X="16" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAwAAAAAAA=</HashCode>
+      <FileName>CollisionController.h</FileName>
+    </TypeIdentifier>
+  </Struct>
   <Enum Name="DIR" Collapsed="true">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>

@@ -18,7 +18,7 @@ protected:
 
 public:
 	// конструктор
-	MissileManager(HDC _hdc);
+	MissileManager(HDC _hdc, ManObjList*& _obj_lst);
 
 	// метод отрисовки и сдвига объектов
 	virtual void ProcessDraw() override;
@@ -32,5 +32,8 @@ public:
 
 	// можно ли выпустить ракету
 	void SetCanShoot(bool);
+
+	// удаление ракеты
+	ManObjIt DeleteMissile(ManObjIt&);
 };
 

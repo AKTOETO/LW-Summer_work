@@ -88,8 +88,8 @@ void ABCAircraft::BrokenWindow()
 	LineTo(m_hdc, GetShiftedX(74), GetShiftedY(55));
 }
 
-ABCAircraft::ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed)
-	:ABCControllableObject(_hdc, _box, _color, _speed)
+ABCAircraft::ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed, short _id)
+	:ABCControllableObject(_hdc, _box, _color, _speed, _id)
 {};
 
 //=================//
@@ -97,8 +97,8 @@ ABCAircraft::ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed)
 //=================//
 
 // Легкий самолет
-LightAircraft::LightAircraft(HDC _hdc)
-	: ABCAircraft(_hdc, { 50,50,100,50 }, RED, 5)
+LightAircraft::LightAircraft(HDC _hdc, short _id)
+	: ABCAircraft(_hdc, { 50,50,100,50 }, RED, 5, _id)
 {}
 
 void LightAircraft::Draw()
@@ -109,8 +109,8 @@ void LightAircraft::Draw()
 }
 
 // Быстрый самолет
-FastAircraft::FastAircraft(HDC _hdc)
-	:ABCAircraft(_hdc, { 50,50,100,50 }, BLACK, 10)
+FastAircraft::FastAircraft(HDC _hdc, short _id)
+	:ABCAircraft(_hdc, { 50,50,100,50 }, BLACK, 10, _id)
 {}
 
 void FastAircraft::Draw()
@@ -122,8 +122,8 @@ void FastAircraft::Draw()
 }
 
 // Очень быстрый самолет
-VeryFastAircraft::VeryFastAircraft(HDC _hdc)
-	:ABCAircraft(_hdc, { 50,50,100,50 }, GREEN, 15)
+VeryFastAircraft::VeryFastAircraft(HDC _hdc, short _id)
+	:ABCAircraft(_hdc, { 50,50,100,50 }, GREEN, 15, _id)
 {}
 
 void VeryFastAircraft::Draw()
@@ -136,8 +136,8 @@ void VeryFastAircraft::Draw()
 }
 
 // Сломанный самолет
-BrokenAircraft::BrokenAircraft(HDC _hdc)
-	:ABCAircraft(_hdc, { 50,50,100,50 }, BLACK, 0)
+BrokenAircraft::BrokenAircraft(HDC _hdc, short _id)
+	:ABCAircraft(_hdc, { 50,50,100,50 }, BLACK, 0, _id)
 {}
 
 void BrokenAircraft::Draw()

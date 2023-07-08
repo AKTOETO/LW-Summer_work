@@ -1,11 +1,9 @@
 ﻿#include "pch.h"
 #include "MissileManager.h"
 
-MissileManager::MissileManager(HDC _hdc)
-	:ABCBaseManager(_hdc), m_can_shoot(1), m_was_shoot(0), m_launch_pos(0, 0)
+MissileManager::MissileManager(HDC _hdc, ManObjList*& _obj_lst)
+	:ABCBaseManager(_hdc, _obj_lst), m_can_shoot(1), m_was_shoot(0), m_launch_pos(0, 0)
 {
-	// очистка списка ракет
-	m_objects.clear();
 }
 
 void MissileManager::ProcessDraw()
@@ -26,7 +24,13 @@ void MissileManager::ProcessLogic()
 		KEY_DOWN(K_SHOOT)
 		)
 	{
-		m_objects.emplace_back(new Missile(m_hdc, m_launch_pos));
+		m_objects->emplace_back(
+			new Missile(m_hdc, m_launch_pos,
+				// если не было добавлено ракет в список, индекс новой - 0,
+				// иначе индекс новой - индекс последней ракеты + 1
+				(!m_objects->empty()? m_objects->back()->GetId() + 1 : 0)
+			)
+		);
 		m_was_shoot = 1;
 	}
 	// если же кнопка не нажата, записываем это
@@ -39,12 +43,12 @@ void MissileManager::ProcessLogic()
 		// если вышли за границы поля, удаляем ракету
 		if (
 			(*it)->GetX() > GF_WIDTH || (*it)->GetShiftedX(100) < 0 ||
-			(*it)->GetY() > GF_HEIGHT || (*it)->GetShiftedY(100) < 0
+			(*it)->GetY() > GF_HEIGHT ||(*it)->GetShiftedY(100) < 0
 			)
 		{
-			delete (*it);
-			it = m_objects.erase(it);
-			if (it == end(m_objects))break;
+			//it = m_objects->erase(it);
+			it = DeleteMissile(it);
+			if (it == end(*m_objects))break;
 		}
 	}
 }
@@ -57,4 +61,11 @@ void MissileManager::SetLaunchPosition(Position _pos)
 void MissileManager::SetCanShoot(bool _flag)
 {
 	m_can_shoot = _flag;
+}
+
+ManObjIt MissileManager::DeleteMissile(ManObjIt& _missile)
+{
+	(*_missile)->Hide();
+	delete (*_missile);
+	return m_objects->erase(_missile);
 }

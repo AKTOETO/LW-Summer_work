@@ -147,6 +147,7 @@
     <ClCompile Include="BarrierManager.cpp" />
     <ClCompile Include="BaseManager.cpp" />
     <ClCompile Include="BaseManager.h" />
+    <ClCompile Include="CollisionController.cpp" />
     <ClCompile Include="ControllableObject.cpp" />
     <ClCompile Include="MissileManager.cpp" />
     <ClCompile Include="Missle.cpp" />
@@ -165,6 +166,7 @@
   <ItemGroup>
     <ClInclude Include="AircraftManager.h" />
     <ClInclude Include="BarrierManager.h" />
+    <ClInclude Include="CollisionController.h" />
     <ClInclude Include="ControllableObject.h" />
     <ClInclude Include="MissileManager.h" />
     <ClInclude Include="Missle.h" />

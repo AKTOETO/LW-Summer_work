@@ -1,15 +1,15 @@
-#include "pch.h"
+п»ї#include "pch.h"
 #include "Barriers.h"
 
 
 //===================================//
-// А Б С Т Р А К Т Н Ы Й   К Л А С С //
+// Рђ Р‘ РЎ Рў Р  Рђ Рљ Рў Рќ Р« Р™   Рљ Р› Рђ РЎ РЎ //
 //===================================//
 
-// камень
+// РєР°РјРµРЅСЊ
 void ABCBarrier::Rock()
 {
-	// камень
+	// РєР°РјРµРЅСЊ
 	MoveToEx(m_hdc, GetShiftedX(10), GetShiftedY(0), NULL);
 	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(10));
 	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(90));
@@ -21,7 +21,7 @@ void ABCBarrier::Rock()
 	LineTo(m_hdc, GetShiftedX(10), GetShiftedY(0));
 }
 
-// башня улучшения самолета
+// Р±Р°С€РЅСЏ СѓР»СѓС‡С€РµРЅРёСЏ СЃР°РјРѕР»РµС‚Р°
 void ABCBarrier::Upgrade()
 {
 	MoveToEx(m_hdc, GetShiftedX(50), GetY(), NULL);
@@ -34,7 +34,7 @@ void ABCBarrier::Upgrade()
 	LineTo(m_hdc, GetShiftedX(50), GetShiftedY(0));
 }
 
-// башня ухудшения самолета
+// Р±Р°С€РЅСЏ СѓС…СѓРґС€РµРЅРёСЏ СЃР°РјРѕР»РµС‚Р°
 void ABCBarrier::Downgrade()
 {
 	MoveToEx(m_hdc, GetShiftedX(50), GetShiftedY(100), NULL);
@@ -47,22 +47,22 @@ void ABCBarrier::Downgrade()
 	LineTo(m_hdc, GetShiftedX(50), GetShiftedY(100));
 }
 
-ABCBarrier::ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color)
-	:ABCUncontrollableObject(_hdc, _box, _color, BARRIER_SPEED, DIR::LEFT)
+ABCBarrier::ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color, short _id)
+	:ABCUncontrollableObject(_hdc, _box, _color, BARRIER_SPEED, DIR::LEFT,_id)
 {}
 
 
 //=======================//
-// П Р Е П Я Т С Т В И Я //
+// Рџ Р  Р• Рџ РЇ Рў РЎ Рў Р’ Р РЇ //
 //=======================//
 
-// легкое препятствие
-Mountain::Mountain(HDC _hdc)
-	:ABCBarrier(_hdc, { GF_RAND_WIDTH, GF_RAND_HIGHT, 100, 100 }, BLACK)
+// Р»РµРіРєРѕРµ РїСЂРµРїСЏС‚СЃС‚РІРёРµ
+Mountain::Mountain(HDC _hdc, short _id)
+	:ABCBarrier(_hdc, { GF_RAND_WIDTH, GF_RAND_HIGHT, 100, 100 }, BLACK, _id)
 {}
 
-Mountain::Mountain(HDC _hdc, Position _pos)
-	:ABCBarrier(_hdc, { _pos, 100, 100 }, BLACK)
+Mountain::Mountain(HDC _hdc, Position _pos, short _id)
+	:ABCBarrier(_hdc, { _pos, 100, 100 }, BLACK, _id)
 {}
 
 void Mountain::Draw()
@@ -70,9 +70,9 @@ void Mountain::Draw()
 	Rock();
 }
 
-// большое препятствие
-UpgradeTower::UpgradeTower(HDC _hdc)
-	:ABCBarrier(_hdc, { GF_RAND_WIDTH, GF_RAND_HIGHT,80,100 }, GREEN)
+// Р±РѕР»СЊС€РѕРµ РїСЂРµРїСЏС‚СЃС‚РІРёРµ
+UpgradeTower::UpgradeTower(HDC _hdc, short _id)
+	:ABCBarrier(_hdc, { GF_RAND_WIDTH, GF_RAND_HIGHT,80,100 }, GREEN, _id)
 {}
 
 void UpgradeTower::Draw()
@@ -80,9 +80,9 @@ void UpgradeTower::Draw()
 	Upgrade();
 }
 
-// прямоугольник
-DowngradeTower::DowngradeTower(HDC _hdc)
-	:ABCBarrier(_hdc, { GF_RAND_WIDTH, GF_RAND_HIGHT,80,100 }, RED)
+// РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+DowngradeTower::DowngradeTower(HDC _hdc, short _id)
+	:ABCBarrier(_hdc, { GF_RAND_WIDTH, GF_RAND_HIGHT,80,100 }, RED, _id)
 {}
 
 void DowngradeTower::Draw()

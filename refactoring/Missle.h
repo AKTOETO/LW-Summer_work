@@ -12,7 +12,7 @@ protected:
 public:
 
     // конструктор
-    Missile(HDC _hdc, Position _box);
+    Missile(HDC _hdc, Position _box, short _id);
 	~Missile();
 };
 

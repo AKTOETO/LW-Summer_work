@@ -1,132 +1,132 @@
-#pragma once
+п»ї#pragma once
 #include "pch.h"
 #include "ControllableObject.h"
 
-// интерфейс части самолета
+// РёРЅС‚РµСЂС„РµР№СЃ С‡Р°СЃС‚Рё СЃР°РјРѕР»РµС‚Р°
 class IAircraftPart
 {
 protected:
-	// крыло
+	// РєСЂС‹Р»Рѕ
 	virtual void Wing() = 0;
 
-	// фюзеляж
+	// С„СЋР·РµР»СЏР¶
 	virtual void Fuselage() = 0;
 
-	// окно
+	// РѕРєРЅРѕ
 	virtual void Window() = 0;
 
-	// двигатель сзади
+	// РґРІРёРіР°С‚РµР»СЊ СЃР·Р°РґРё
 	virtual void RearEngine() = 0;
 
-	// двигатель под крылом
+	// РґРІРёРіР°С‚РµР»СЊ РїРѕРґ РєСЂС‹Р»РѕРј
 	virtual void UnderWingEngine() = 0;
 
-	// cломаный фюзеляж
+	// cР»РѕРјР°РЅС‹Р№ С„СЋР·РµР»СЏР¶
 	virtual void BrokenFuselage() = 0;
 
-	// сломанное крыло
+	// СЃР»РѕРјР°РЅРЅРѕРµ РєСЂС‹Р»Рѕ
 	virtual void BrokenWing() = 0;
 
-	// сломанное окно
+	// СЃР»РѕРјР°РЅРЅРѕРµ РѕРєРЅРѕ
 	virtual void BrokenWindow() = 0;
 
 };
 
-// Абстрактный базовый класс самолета
-// реализует функции отрисовки частей самолета
+// РђР±СЃС‚СЂР°РєС‚РЅС‹Р№ Р±Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ СЃР°РјРѕР»РµС‚Р°
+// СЂРµР°Р»РёР·СѓРµС‚ С„СѓРЅРєС†РёРё РѕС‚СЂРёСЃРѕРІРєРё С‡Р°СЃС‚РµР№ СЃР°РјРѕР»РµС‚Р°
 class ABCAircraft:
 	public IAircraftPart,
 	public ABCControllableObject
 {
 protected:
 
-	// части самолета
-	// крыло
+	// С‡Р°СЃС‚Рё СЃР°РјРѕР»РµС‚Р°
+	// РєСЂС‹Р»Рѕ
 	virtual void Wing() override;
 
-	// фюзеляж
+	// С„СЋР·РµР»СЏР¶
 	virtual void Fuselage() override;
 
-	// иллюминатор
+	// РёР»Р»СЋРјРёРЅР°С‚РѕСЂ
 	virtual void Window() override;
 
-	// двигатель сзади
+	// РґРІРёРіР°С‚РµР»СЊ СЃР·Р°РґРё
 	virtual void RearEngine() override;
 
-	// двигатель под крылом
+	// РґРІРёРіР°С‚РµР»СЊ РїРѕРґ РєСЂС‹Р»РѕРј
 	virtual void UnderWingEngine() override;
 
-	// сломанный самолет
+	// СЃР»РѕРјР°РЅРЅС‹Р№ СЃР°РјРѕР»РµС‚
 	virtual void BrokenFuselage() override;
 
-	// сломанное крыло
+	// СЃР»РѕРјР°РЅРЅРѕРµ РєСЂС‹Р»Рѕ
 	virtual void BrokenWing() override;
 
-	// сломанное окно
+	// СЃР»РѕРјР°РЅРЅРѕРµ РѕРєРЅРѕ
 	virtual void BrokenWindow() override;
 
 public:
 
-	// конструктор
-	ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	ABCAircraft(HDC _hdc, HitBox _box, COLORREF _color, float _speed, short _id);
 };
 
 //=================//
-// С А М О Л Е Т Ы //
+// РЎ Рђ Рњ Рћ Р› Р• Рў Р« //
 //=================//
 
-// легкий самолет
+// Р»РµРіРєРёР№ СЃР°РјРѕР»РµС‚
 class LightAircraft :
 	public ABCAircraft
 {
 public:
-	// конструктор
-	LightAircraft(HDC _hdc);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	LightAircraft(HDC _hdc, short _id);
 
 protected:
 
-	// Отрисовка самолета
+	// РћС‚СЂРёСЃРѕРІРєР° СЃР°РјРѕР»РµС‚Р°
 	virtual void Draw() override;
 };
 
-// быстрый самолет
+// Р±С‹СЃС‚СЂС‹Р№ СЃР°РјРѕР»РµС‚
 class FastAircraft :
 	public ABCAircraft
 {
 public:
-	// конструктор
-	FastAircraft(HDC _hdc);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	FastAircraft(HDC _hdc, short _id);
 
 protected:
 
-	// Отрисовка самолета
+	// РћС‚СЂРёСЃРѕРІРєР° СЃР°РјРѕР»РµС‚Р°
 	virtual void Draw() override;
 };
 
-// очень быстрый самолет
+// РѕС‡РµРЅСЊ Р±С‹СЃС‚СЂС‹Р№ СЃР°РјРѕР»РµС‚
 class VeryFastAircraft :
 	public ABCAircraft
 {
 public:
-	// конструктор
-	VeryFastAircraft(HDC _hdc);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	VeryFastAircraft(HDC _hdc, short _id);
 
 protected:
 
-	// отрисовка самолета
+	// РѕС‚СЂРёСЃРѕРІРєР° СЃР°РјРѕР»РµС‚Р°
 	virtual void Draw() override;
 };
 
-// сломанный самолет
+// СЃР»РѕРјР°РЅРЅС‹Р№ СЃР°РјРѕР»РµС‚
 class BrokenAircraft :
 	public ABCAircraft
 {
 public:
-	// конструктор
-	BrokenAircraft(HDC _hdc);
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	BrokenAircraft(HDC _hdc, short _id);
 
 protected:
 
-	// Отрисовка самолета
+	// РћС‚СЂРёСЃРѕРІРєР° СЃР°РјРѕР»РµС‚Р°
 	virtual void Draw() override;
 };

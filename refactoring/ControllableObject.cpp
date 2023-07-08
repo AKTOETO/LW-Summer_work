@@ -1,31 +1,31 @@
-#include "pch.h"
+п»ї#include "pch.h"
 #include "ControllableObject.h"
 
 void ABCControllableObject::CalcShiftPos()
 {
-	// обработка нажатых клавиш
-	// если нажата клавиша вперед, двигаемся вверх
+	// РѕР±СЂР°Р±РѕС‚РєР° РЅР°Р¶Р°С‚С‹С… РєР»Р°РІРёС€
+	// РµСЃР»Рё РЅР°Р¶Р°С‚Р° РєР»Р°РІРёС€Р° РІРїРµСЂРµРґ, РґРІРёРіР°РµРјСЃСЏ РІРІРµСЂС…
 	if (KEY_DOWN(K_FORWARD))
 	{
 		m_shift = { 0, -int(m_speed) };
 		m_dir = DIR::UP;
 	}
 
-	// если нажата клавиша назад, двигаемся вниз
+	// РµСЃР»Рё РЅР°Р¶Р°С‚Р° РєР»Р°РІРёС€Р° РЅР°Р·Р°Рґ, РґРІРёРіР°РµРјСЃСЏ РІРЅРёР·
 	else if (KEY_DOWN(K_BACKWARD))
 	{
 		m_shift = { 0, int(m_speed) };
 		m_dir = DIR::DOWN;
 	}
 
-	// если нажата клавиша влево, двигаемся влево
+	// РµСЃР»Рё РЅР°Р¶Р°С‚Р° РєР»Р°РІРёС€Р° РІР»РµРІРѕ, РґРІРёРіР°РµРјСЃСЏ РІР»РµРІРѕ
 	else if (KEY_DOWN(K_LEFTWARD))
 	{
 		m_shift = { -int(m_speed), 0 };
 		m_dir = DIR::LEFT;
 	}
 
-	// если нажата клавиша вправо, двигаемся вправо
+	// РµСЃР»Рё РЅР°Р¶Р°С‚Р° РєР»Р°РІРёС€Р° РІРїСЂР°РІРѕ, РґРІРёРіР°РµРјСЃСЏ РІРїСЂР°РІРѕ
 	else if (KEY_DOWN(K_RIGHTWARD))
 	{
 		m_shift = { int(m_speed), 0 };
@@ -39,8 +39,10 @@ void ABCControllableObject::CalcShiftPos()
 
 }
 
-ABCControllableObject::ABCControllableObject(HDC _hdc, HitBox _box, COLORREF _color, float _speed)
-	:ABCMoveableObject(_hdc, _box, _color, _speed)
+ABCControllableObject::ABCControllableObject(
+	HDC _hdc, HitBox _box, COLORREF _color, float _speed, short _id
+)
+	:ABCMoveableObject(_hdc, _box, _color, _speed, _id)
 {
 }
 

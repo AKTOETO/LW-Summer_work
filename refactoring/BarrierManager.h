@@ -8,7 +8,7 @@ class BarrierManager :
 {
 public:
 	// конструктор
-	BarrierManager(HDC _hdc);
+	BarrierManager(HDC _hdc, ManObjList*& _obj_lst);
 
 	// метод отрисовки и сдвига объектов
 	virtual void ProcessDraw() override;

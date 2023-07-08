@@ -10,7 +10,7 @@ protected:
     virtual void CalcShiftPos() override;
 
 public:
-    ABCUncontrollableObject(HDC _hdc, HitBox _box, COLORREF _color, float _speed, DIR _dir);
+    ABCUncontrollableObject(HDC _hdc, HitBox _box, COLORREF _color, float _speed, DIR _dir, short _id);
     virtual ~ABCUncontrollableObject();
 };
 

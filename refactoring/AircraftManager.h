@@ -7,11 +7,11 @@ class AircraftManager :
 {
 protected:
 	// указатель на текущий самолет
-	ABCMoveableObject* m_cur_aircraft;
+	ManObjIt m_cur_aircraft;
 
 public:
 	// конструктор
-	AircraftManager(HDC _hdc);
+	AircraftManager(HDC _hdc, ManObjList*& _obj_lst);
 
 	// метод отрисовки и сдвига объектов
 	virtual void ProcessDraw() override;
@@ -21,9 +21,9 @@ public:
 	virtual void ProcessLogic() override;
 
 	// установка текущего самолета
-	void SetCurrentAircraft(ABCMoveableObject*&);
+	void SetCurrentAircraft(ManObjIt);
 
-	// получение хитбокса текущего самолета
-	const HitBox& GetHitBoxOfCurrentAircraft() const;
+	// получение текущего самолета
+	const ManObjIt& GetCurrentAircraft();
 };
 
