@@ -166,14 +166,14 @@
   <Class Name="CollisionController" Collapsed="true">
     <Position X="14" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAQAAAAAAAgAIAAAAAAGEAAAAAAAgAAIAAAAAAAA=</HashCode>
+      <HashCode>AAgAAQAAAAAAAgAIAAAAAAGEAAAAAAAgIAAAAAAAAAE=</HashCode>
       <FileName>CollisionController.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="CollisionsLists" Collapsed="true">
     <Position X="16" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAwAAAAAAA=</HashCode>
+      <HashCode>AAACAAAgAAAAAAAAAAAAAAAAAAAAAIAAAAAwAAAAAAA=</HashCode>
       <FileName>CollisionController.h</FileName>
     </TypeIdentifier>
   </Struct>

@@ -3,15 +3,23 @@
 #include "AircraftManager.h"
 #include "MissileManager.h"
 
+// матрица целых чисел
+using IntMatrix = std::vector<std::vector<int>>;
+
+// матрица итераторов
+using ManObjItMatrix = std::vector<std::vector<ManObjIt>>;
+
 // списки объектов для просчета коллизий
 struct CollisionsLists
 {
+	IntMatrix* m_collision_matrix;
 	ManObjList* m_aircrafts;
 	ManObjList* m_missiles;
 	ManObjList* m_bars;
 
 	CollisionsLists& operator=(CollisionsLists& _lst)
 	{
+		m_collision_matrix = _lst.m_collision_matrix;
 		m_aircrafts = _lst.m_aircrafts;
 		m_missiles = _lst.m_missiles;
 		m_bars = _lst.m_bars;
@@ -34,7 +42,8 @@ protected:
 	CollisionsLists m_collision_list;
 
 	// матрица перехода
-	std::vector<std::vector<int>> m_collis_mat;
+	ManObjItMatrix m_collis_matr;
+	//std::vector<std::vector<ManObjIt>> m_collis_mat;
 
 	// есть ли пересечение текущего самолета и барьера
 	std::vector<bool> m_is_collision;
@@ -42,6 +51,8 @@ protected:
 	// было ли пересечение текущего самолета и барьера
 	std::vector<bool> m_was_collision;
 	
+	// создание матрицы переходов с использованием итераторов
+	void CreateCollisionMatrix();
 
 public:
 	// конструктор и деструктор
