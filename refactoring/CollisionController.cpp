@@ -32,7 +32,7 @@ CollisionController::CollisionController(HDC _hdc, CollisionsLists& _col_lst)
 	m_collis_mat =
 	{
 		{3, 3, 3, 1, 0},
-		{3, 3, 3, 2, 0},
+		{3, 3, 3, 2, 1},
 		{3, 3, 3, 2, 1},
 		{3, 3, 3, 3, 3},
 	};
@@ -96,7 +96,7 @@ void CollisionController::ProcessLogic()
 		{
 			// получаем индекс нового самолета
 			int new_aircraft_ind = m_collis_mat
-				[(*m_collision_list.m_aircrafts->begin())->GetId()][bars_ind];
+				[(*GetCurrentAircraft())->GetId()][bars_ind];
 
 			// устанавливаем новый самолет
 			ManObjIt new_aircraft_iter = m_collision_list.m_aircrafts->begin();
@@ -108,10 +108,10 @@ void CollisionController::ProcessLogic()
 		}
 	}
 
-	// запуск логики менеджеров
+	// ЗАПУСК ЛОГИКИ МЕНЕДЖЕРОВ
 	AircraftManager::ProcessLogic();
 
-	// установка запуска ракеты
+	// установка позиции запуска ракеты
 	MissileManager::SetLaunchPosition(
 		(*GetCurrentAircraft())->GetShiftedPosition(90, 50)
 	);

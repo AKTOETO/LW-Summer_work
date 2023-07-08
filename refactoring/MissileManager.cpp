@@ -46,7 +46,6 @@ void MissileManager::ProcessLogic()
 			(*it)->GetY() > GF_HEIGHT ||(*it)->GetShiftedY(100) < 0
 			)
 		{
-			//it = m_objects->erase(it);
 			it = DeleteMissile(it);
 			if (it == end(*m_objects))break;
 		}

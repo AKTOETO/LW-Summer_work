@@ -4,15 +4,6 @@
 BarrierManager::BarrierManager(HDC _hdc, ManObjList*& _obj_lst)
 	:ABCBaseManager(_hdc, _obj_lst)
 {
-	// добавление всех барьеров
-	/*m_objects =
-	{
-		new Mountain		(m_hdc, 0),
-		new Mountain		(m_hdc, 1),
-		new Mountain		(m_hdc, 2),
-		new UpgradeTower	(m_hdc, 3),
-		new DowngradeTower	(m_hdc, 4),
-	};*/
 }
 
 void BarrierManager::ProcessDraw()

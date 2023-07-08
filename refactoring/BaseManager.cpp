@@ -5,7 +5,6 @@ ABCBaseManager::ABCBaseManager(HDC _hdc, ManObjList*& _obj_lst)
 	:m_hdc(_hdc)
 {
 	m_objects = _obj_lst;
-	//*m_objects = *_obj_lst;
 }
 
 ABCBaseManager::~ABCBaseManager()

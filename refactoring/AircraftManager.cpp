@@ -4,15 +4,6 @@
 AircraftManager::AircraftManager(HDC _hdc, ManObjList*& _obj_lst)
 	:ABCBaseManager(_hdc, _obj_lst)
 {
-	// добавление всех самолетов
-	/*m_objects =
-	{
-		new LightAircraft	(m_hdc,	0),
-		new FastAircraft	(m_hdc,	1),
-		new VeryFastAircraft(m_hdc,	2),
-		new BrokenAircraft	(m_hdc,	3),
-	};*/
-
 	// текущий самолет
 	m_cur_aircraft = m_objects->begin();
 }

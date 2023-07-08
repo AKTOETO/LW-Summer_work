@@ -30,12 +30,6 @@ protected:
 	// просчет колизии
 	bool IsCollision(const HitBox& _air, const HitBox& _bar);
 
-	//// список препятствий
-	//ManObjList* m_bars;
-	//// список ракет
-	//ManObjList* m_missiles;
-	//// список самолетов
-	//ManObjList* m_aircrafts;
 	// списки объектов для просчета коллизий
 	CollisionsLists m_collision_list;
 
