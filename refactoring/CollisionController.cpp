@@ -57,8 +57,8 @@ CollisionController::~CollisionController()
 void CollisionController::ProcessDraw()
 {
 	// рисуем и двигамем самолеты, ракеты, барьеры
-	AircraftManager::ProcessDraw();
 	MissileManager::ProcessDraw();
+	AircraftManager::ProcessDraw();
 	BarrierManager::ProcessDraw();
 }
 
@@ -115,7 +115,6 @@ void CollisionController::ProcessLogic()
 	}
 
 	// ЗАПУСК ЛОГИКИ МЕНЕДЖЕРОВ
-	AircraftManager::ProcessLogic();
 
 	// установка позиции запуска ракеты
 	MissileManager::SetLaunchPosition(
@@ -128,5 +127,7 @@ void CollisionController::ProcessLogic()
 	);
 	
 	MissileManager::ProcessLogic();
+
+	AircraftManager::ProcessLogic();
 	BarrierManager::ProcessLogic();
 }

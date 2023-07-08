@@ -19,7 +19,7 @@ void AircraftManager::ProcessLogic()
 	// пределы игровой области
 }
 
-void AircraftManager::SetCurrentAircraft(ManObjIt _new_aircraft)
+void AircraftManager::SetCurrentAircraft(ManObjIt& _new_aircraft)
 {
 	// переношу новый самолет в позицию текущего
 	(*_new_aircraft)->SetPos((*m_cur_aircraft)->GetPos());

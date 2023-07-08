@@ -21,7 +21,7 @@ public:
 	virtual void ProcessLogic() override;
 
 	// установка текущего самолета
-	void SetCurrentAircraft(ManObjIt);
+	void SetCurrentAircraft(ManObjIt&);
 
 	// получение текущего самолета
 	const ManObjIt& GetCurrentAircraft();

@@ -80,7 +80,7 @@ int main()
 			col_lst.m_collision_matrix = new IntMatrix(
 				{
 					{3, 3, 3, 1, 0},
-					{3, 3, 3, 2, 1},
+					{3, 3, 3, 2, 0},
 					{3, 3, 3, 2, 1},
 					{3, 3, 3, 3, 3},
 				}
