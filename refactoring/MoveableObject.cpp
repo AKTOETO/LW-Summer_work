@@ -17,8 +17,13 @@ void ABCMoveableObject::Hide()
 	// зарисовываю фигуру белым цветом
 	HPEN Pen = CreatePen(PS_SOLID, 3, WHITE_GRAY);
 	SelectObject(m_hdc, Pen);
+	HBRUSH brush = CreateSolidBrush(WHITE_GRAY);
+	SelectObject(m_hdc, brush);
+
 	Draw();
+
 	DeleteObject(Pen);
+	DeleteObject(brush);
 }
 
 // метод отображения объекта
@@ -27,8 +32,13 @@ void ABCMoveableObject::Show()
 	// зарисовываю фигуру красным цветом
 	HPEN Pen = CreatePen(PS_SOLID, 3, m_color);
 	SelectObject(m_hdc, Pen);
+	HBRUSH brush = CreateSolidBrush(RED);
+	SelectObject(m_hdc, brush);
+	
 	Draw();
+
 	DeleteObject(Pen);
+	DeleteObject(brush);
 }
 
 // Отрисовка передвигаемого объекта

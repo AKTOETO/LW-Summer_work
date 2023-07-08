@@ -9,16 +9,18 @@
 // камень
 void ABCBarrier::Rock()
 {
+	BeginPath(m_hdc);
 	// камень
-	MoveToEx(m_hdc, GetShiftedX(10), GetShiftedY(0), NULL);
-	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(10));
-	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(90));
-	LineTo(m_hdc, GetShiftedX(10), GetShiftedY(100));
-	LineTo(m_hdc, GetShiftedX(90), GetShiftedY(100));
-	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(90));
-	LineTo(m_hdc, GetShiftedX(100), GetShiftedY(10));
-	LineTo(m_hdc, GetShiftedX(90), GetShiftedY(0));
-	LineTo(m_hdc, GetShiftedX(10), GetShiftedY(0));
+	MoveToEx(m_hdc, GetShiftedX(20), GetShiftedY(0), NULL);
+	LineTo(m_hdc, GetShiftedX(30), GetShiftedY(10));
+	LineTo(m_hdc, GetShiftedX(70), GetShiftedY(12));
+	LineTo(m_hdc, GetShiftedX(80), GetShiftedY(80));
+	LineTo(m_hdc, GetShiftedX(50), GetShiftedY(100));
+	LineTo(m_hdc, GetShiftedX(20), GetShiftedY(70));
+	LineTo(m_hdc, GetShiftedX(0), GetShiftedY(0));
+
+	EndPath(m_hdc);
+	FillPath(m_hdc);
 }
 
 // башня улучшения самолета

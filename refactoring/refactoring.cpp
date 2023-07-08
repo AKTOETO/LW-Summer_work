@@ -67,8 +67,10 @@ int main()
 					 new Mountain(hdc, 0),
 					 new Mountain(hdc, 1),
 					 new Mountain(hdc, 2),
-					 new UpgradeTower(hdc, 3),
-					 new DowngradeTower(hdc, 4),
+					 new Mountain(hdc, 3),
+					 new Mountain(hdc, 4),
+					 new UpgradeTower(hdc, 5),
+					 new DowngradeTower(hdc, 6),
 				}
 			);
 
@@ -79,10 +81,10 @@ int main()
 			// t - номер полученного после пересечения самолета из массива aircrafts
 			col_lst.m_collision_matrix = new IntMatrix(
 				{
-					{3, 3, 3, 1, 0},
-					{3, 3, 3, 2, 0},
-					{3, 3, 3, 2, 1},
-					{3, 3, 3, 3, 3},
+					{3, 3, 3, 3, 3, 1, 0},
+					{3, 3, 3, 3, 3, 2, 0},
+					{3, 3, 3, 3, 3, 2, 1},
+					{3, 3, 3, 3, 3, 3, 3},
 				}
 			);
 
