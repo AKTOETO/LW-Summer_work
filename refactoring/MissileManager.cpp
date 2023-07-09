@@ -43,7 +43,7 @@ void MissileManager::ProcessLogic()
 		// если вышли за границы поля, удаляем ракету
 		if (
 			(*it)->GetX() > GF_WIDTH || (*it)->GetShiftedX(100) < 0 ||
-			(*it)->GetY() > GF_HEIGHT ||(*it)->GetShiftedY(100) < 0
+			(*it)->GetY() > GF_HEIGHT + GF_SHIFT ||(*it)->GetShiftedY(100) < GF_SHIFT
 			)
 		{
 			it = DeleteMissile(it);

@@ -36,14 +36,13 @@ class CollisionController :
 {
 protected:
 	// просчет колизии
-	bool IsCollision(const HitBox& _air, const HitBox& _bar);
+	//bool IsCollision(const HitBox& _air, const HitBox& _bar);
 
 	// списки объектов для просчета коллизий
 	CollisionsLists m_collision_list;
 
 	// матрица перехода
 	ManObjItMatrix m_collis_matr;
-	//std::vector<std::vector<ManObjIt>> m_collis_mat;
 
 	// есть ли пересечение текущего самолета и барьера
 	std::vector<bool> m_is_collision;

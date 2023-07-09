@@ -9,6 +9,12 @@ protected:
 	// указатель на текущий самолет
 	ManObjIt m_cur_aircraft;
 
+	// установка текущего самолета
+	void SetCurrentAircraft(ManObjIt&);
+
+	// получение текущего самолета
+	const ManObjIt& GetCurrentAircraft();
+
 public:
 	// конструктор
 	AircraftManager(HDC _hdc, ManObjList*& _obj_lst);
@@ -19,11 +25,5 @@ public:
 	// метод обработки событий 
 	// (нажатие кнопок, выход за границы игрового поля, ...)
 	virtual void ProcessLogic() override;
-
-	// установка текущего самолета
-	void SetCurrentAircraft(ManObjIt&);
-
-	// получение текущего самолета
-	const ManObjIt& GetCurrentAircraft();
 };
 

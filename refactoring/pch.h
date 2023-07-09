@@ -8,5 +8,5 @@
 #include <conio.h>
 #include <list>
 
-#include "HitBox.h"
+#include "SupportFunc.h"
 #include "Constants.h"

@@ -177,6 +177,7 @@
     <ClInclude Include="HitBox.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Position.h" />
+    <ClInclude Include="SupportFunc.h" />
     <ClInclude Include="UncontrollableObject.h" />
   </ItemGroup>
   <ItemGroup>

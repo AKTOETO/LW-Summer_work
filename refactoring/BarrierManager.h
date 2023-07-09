@@ -6,6 +6,10 @@
 class BarrierManager :
     public ABCBaseManager
 {
+protected:
+	// переместить барьер
+	void ResetBarriersPosition(ManObjIt&);
+
 public:
 	// конструктор
 	BarrierManager(HDC _hdc, ManObjList*& _obj_lst);

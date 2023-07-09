@@ -16,6 +16,15 @@ protected:
 	// позиция выстрела
 	Position m_launch_pos;
 
+	// запуск ракеты
+	void SetLaunchPosition(Position);
+
+	// можно ли выпустить ракету
+	void SetCanShoot(bool);
+
+	// удаление ракеты
+	ManObjIt DeleteMissile(ManObjIt&);
+
 public:
 	// конструктор
 	MissileManager(HDC _hdc, ManObjList*& _obj_lst);
@@ -26,14 +35,5 @@ public:
 	// метод обработки событий 
 	// (нажатие кнопок, выход за границы игрового поля, ...)
 	virtual void ProcessLogic() override;
-
-	// запуск ракеты
-	void SetLaunchPosition(Position);
-
-	// можно ли выпустить ракету
-	void SetCanShoot(bool);
-
-	// удаление ракеты
-	ManObjIt DeleteMissile(ManObjIt&);
 };
 

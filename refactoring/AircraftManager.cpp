@@ -15,8 +15,34 @@ void AircraftManager::ProcessDraw()
 
 void AircraftManager::ProcessLogic()
 {
-	// TODO забрать возможность самолета улетать за 
-	// пределы игровой области
+	// проверка на вылет самолета из игровой области
+	// если же вылет произошел, возвращаем самолет обратно
+
+	// проверка верхней границы
+	if ((*m_cur_aircraft)->GetY() < GF_SHIFT)
+		(*m_cur_aircraft)->Reposition({ (*m_cur_aircraft)->GetX(), GF_SHIFT });
+
+	// проверка нижней границы
+	else if ((*m_cur_aircraft)->GetShiftedY(100) >= GF_HEIGHT + GF_SHIFT)
+		(*m_cur_aircraft)->Reposition(
+			{
+				(*m_cur_aircraft)->GetX(),
+				GF_HEIGHT + GF_SHIFT - (*m_cur_aircraft)->GetHeight()
+			}
+	);
+
+	// проверка правой границы
+	if ((*m_cur_aircraft)->GetShiftedX(100) >= GF_WIDTH)
+		(*m_cur_aircraft)->Reposition(
+			{
+				GF_WIDTH - (*m_cur_aircraft)->GetWidth(),
+				(*m_cur_aircraft)->GetY()
+			}
+	);
+
+	// проверка левой границы
+	else if ((*m_cur_aircraft)->GetX() < 0)
+		(*m_cur_aircraft)->Reposition({ 0, (*m_cur_aircraft)->GetY() });
 }
 
 void AircraftManager::SetCurrentAircraft(ManObjIt& _new_aircraft)

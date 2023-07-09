@@ -1,15 +1,6 @@
 ﻿#include "pch.h"
 #include "CollisionController.h"
 
-bool CollisionController::IsCollision(const HitBox& _air, const HitBox& _bar)
-{
-	int r1 = _air.GetX() + _air.GetWidth();
-	int b1 = _air.GetY() + _air.GetHeight();
-	int r2 = _bar.GetX() + _bar.GetWidth();
-	int b2 = _bar.GetY() + _bar.GetHeight();
-	return (_air.GetX() < r2) && (_bar.GetX() < r1) && (_air.GetY() < b2) && (_bar.GetY() < b1);
-}
-
 void CollisionController::CreateCollisionMatrix()
 {
 	// установка размера матрицы коллизий
@@ -86,31 +77,43 @@ void CollisionController::ProcessLogic()
 			}
 		}
 
-		int bars_ind = (*bar)->GetId();
 		// проверка пересечения всех барьеров со всеми самолетами
-		// если самолет и препятствие пересеклось
-		if (IsCollision((*GetCurrentAircraft())->GetHitBox(), **bar))
+		// если самолет не взорван
+		if((*GetCurrentAircraft())->GetId() != 3)
 		{
-			m_is_collision[bars_ind] = 1;
-		}
-		else
-		{
-			m_is_collision[bars_ind] = 0;
-			m_was_collision[bars_ind] = 0;
-		}
+			int bars_ind = (*bar)->GetId();
+			// если самолет и препятствие пересеклось
+			if (IsCollision((*GetCurrentAircraft())->GetHitBox(), **bar))
+			{
+				m_is_collision[bars_ind] = 1;
+			}
+			else
+			{
+				m_is_collision[bars_ind] = 0;
+				m_was_collision[bars_ind] = 0;
+			}
 
-		// если сейчас есть пересечение, а шаг назад его не было
-		if (m_is_collision[bars_ind] && !m_was_collision[bars_ind])
-		{
-			// получаем индекс нового самолета
-			ManObjIt new_aircraft_iter = m_collis_matr
-				[(*GetCurrentAircraft())->GetId()][bars_ind];
-			
-			//// устанавливаем новый самолет
-			AircraftManager::SetCurrentAircraft(new_aircraft_iter);
+			// если сейчас есть пересечение, а шаг назад его не было
+			if (m_is_collision[bars_ind] && !m_was_collision[bars_ind])
+			{
+				// получаем индекс нового самолета
+				ManObjIt new_aircraft_iter = m_collis_matr
+					[(*GetCurrentAircraft())->GetId()][bars_ind];
 
-			// пересечение случилось
-			m_was_collision[bars_ind] = 1;
+				// устанавливаем новый самолет
+				AircraftManager::SetCurrentAircraft(new_aircraft_iter);
+
+				// пересечение случилось
+				m_was_collision[bars_ind] = 1;
+
+				// если барьер, с которым было пересечение является
+				// улучшающей башней или ухудшающей, то перемещаем его
+				if (
+					bars_ind == (*m_collision_list.m_collision_matrix)[0].size() - 1 ||
+					bars_ind == (*m_collision_list.m_collision_matrix)[0].size() - 2
+					)
+					ResetBarriersPosition(bar);
+			}
 		}
 	}
 

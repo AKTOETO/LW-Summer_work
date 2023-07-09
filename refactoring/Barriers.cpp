@@ -50,7 +50,7 @@ void ABCBarrier::Downgrade()
 }
 
 ABCBarrier::ABCBarrier(HDC _hdc, HitBox _box, COLORREF _color, short _id)
-	:ABCUncontrollableObject(_hdc, _box, _color, BARRIER_SPEED, DIR::LEFT,_id)
+	:ABCUncontrollableObject(_hdc, _box, _color, BR_SPEED, DIR::LEFT,_id)
 {}
 
 

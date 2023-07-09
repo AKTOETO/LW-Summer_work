@@ -7,11 +7,17 @@
 // ИГРОВЫЕ НАСТРОЙКИ //
 //===================//
 
+#define GF_SHIFT  30						// сдвиг игровой области сверху
 #define GF_WIDTH  1920						// ширина игрового поля
 #define GF_HEIGHT 1000						// высота игрового поля
-#define GF_RAND_HIGHT rand() % GF_HEIGHT	// случайная координата y
+#define GF_RAND_HIGHT rand() % (GF_HEIGHT - GF_SHIFT)	// случайная координата y
 #define GF_RAND_WIDTH rand() % GF_WIDTH		// случайная координата x
-#define BARRIER_SPEED 5						// скорость барьеров
+
+// барьеры
+#define BR_SPEED 5			// скорость барьеров
+#define BR_MIN_Y_DIST    10	// минимальное расстояние между барьерами по оси Y
+#define BR_MIN_X_DIST    10	// минимальное расстояние между барьерами по оси X
+#define BR_RAND_Y_COORD(height) GF_SHIFT + rand() % (GF_HEIGHT - GF_SHIFT - height)
 
 //===============//
 // К Л А В И Ш И //
