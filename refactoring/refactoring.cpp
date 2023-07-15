@@ -25,10 +25,6 @@ using namespace std;           // Пространство имен std
 /*---------------------------------------------------------------------*/
 HWND GetConcolWindow(); // указатель на консольное окно
 
-// коллизия двух хитбоксов
-bool Collision(const HitBox& _air, const HitBox& _bar);
-
-
 /***********************************************************************/
 /*               О С Н О В Н А Я    П Р О Г Р А М М А                  */
 /***********************************************************************/
@@ -131,13 +127,3 @@ HWND GetConcolWindow()
 	return hwnd;//вернуть дескриптор окна
 }
 //end GetConcolWindow()
-
-// просчет колизии
-bool Collision(const HitBox& _air, const HitBox& _bar)
-{
-	int r1 = _air.GetX() + _air.GetWidth();
-	int b1 = _air.GetY() + _air.GetHeight();
-	int r2 = _bar.GetX() + _bar.GetWidth();
-	int b2 = _bar.GetY() + _bar.GetHeight();
-	return (_air.GetX() < r2) && (_bar.GetX() < r1) && (_air.GetY() < b2) && (_bar.GetY() < b1);
-}

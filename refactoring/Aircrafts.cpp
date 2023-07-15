@@ -110,7 +110,7 @@ void LightAircraft::Draw()
 
 // Быстрый самолет
 FastAircraft::FastAircraft(HDC _hdc, short _id)
-	:ABCAircraft(_hdc, { 50,50,100,50 }, BLACK, 10, _id)
+	:ABCAircraft(_hdc, { 50,50,100,50 }, BLUE, 10, _id)
 {}
 
 void FastAircraft::Draw()
